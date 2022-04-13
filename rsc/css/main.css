@@ -1,0 +1,134 @@
+:root{
+  --section-width:640px;
+  
+  --color-text-header:white;
+  --color-text-section-container:white;
+  --color-list-item:white;
+  --color-list-title:white;
+ 
+  --color-background-header: #4478AB;
+  --color-background-body: #65ADF7;
+  --color-background-section: #5492D1;
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+  background-color:var(--color-background-body) ;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header{
+  display: flex;
+}
+
+.header_container{
+  background-color:var(--color-background-header);
+  border-color: var(--color-text-header);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: var(--section-width);  
+  margin: auto;  
+  flex-wrap: wrap;
+  padding: 1rem 1rem;
+  width: 100%;
+  border-style: groove;
+  border-radius: 1%;
+  box-sizing: border-box;
+}
+
+.header_image{
+  width: 64px;
+  height: 64px;
+  border-radius: 25%;
+  transition: all 0.25s;
+}
+
+.header_image:hover{
+  width: 128px;
+  height: 128px;
+}
+
+.header_h1, .header_h2{
+  text-align: center;
+  margin: 0;
+  color:var(--color-text-header);
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  max-width: var(--section-width);
+  margin: 1rem auto;
+}
+
+.section{
+  display: flex;
+  background-color: var(--color-background-section);
+  box-sizing: border-box;
+}
+
+.section_container{
+  background-color: var(--color-background-section);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.section_h2{
+  margin:0;
+  color: var(--color-list-title);
+  background-color: var(--color-background-header);
+  padding: 0.75rem 0.5rem;
+}
+
+.section-list{
+  margin: 0;
+  left: 0;
+}
+
+.section-list__item{
+  display: flex;
+  align-items: center;
+  color:var(--color-list-item);
+  padding: 0.5rem;
+  width: 300px;
+}
+
+.section-list__item-label{
+  width: 300px;
+}
+
+.section-list__item-container{
+  width: 32px;
+  height: 32px;
+  background: url("/rsc/img/img_go.jpg") no-repeat;
+  background-size: contain;
+}
+
+.section-list__item-container:hover{
+  background: url("/rsc/img/img_go_hover.jpg") no-repeat;
+  background-size: contain;
+}
+
+.footer{
+  display:flex;
+  margin: 1rem auto;
+  background-color:var(--color-background-header);
+  max-width: var(--section-width);
+  border-style: groove;
+  border-color: var(--color-text-header);
+  border-radius: 1%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer_container{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  color: var(--color-text-header);
+  padding: 1rem;
+}

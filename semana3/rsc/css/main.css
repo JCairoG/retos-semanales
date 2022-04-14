@@ -12,6 +12,9 @@
     --color-text: white;
     --color-primary-highlight: #44cbcb;
     --container-max-width: 1024px;
+
+    --logo-initial-position: 0rem;
+    --logo-final-position: 3rem;
 }
 
 @keyframes zoom {
@@ -35,19 +38,30 @@
     }
   }
 
+  @keyframes levitate {
+    0% {
+        top: var(--logo-initial-position);
+        transform: rotate(10deg);
+    }
+    
+    50%{
+        top: var(calc(--logo-final-position/2));
+        transform: rotate(-10deg);
+    }
+
+    100%{
+        top: var(--logo-final-position);
+        transform: rotate(0deg);
+    }
+  }
+
 .body{
-    display: flex;
-    flex-direction: column;
     font-family: 'Oswald', sans-serif;
-    min-height: 100vh; /*barra desplazamiento*/
+    min-height: 150vh; /*barra desplazamiento*/
     background-color: var(--color-background-body);
 }
 
-.header{
-    margin-top: 1rem;
-}
-
-.header_container{
+.header-container{
     background-color: var(--color-background-header);
     display: flex;
     align-items: center;
@@ -56,18 +70,31 @@
     margin: auto;
     flex-wrap: wrap;
     border-radius: 0.5rem;
+    overflow: hidden;
+    
+    /*testeando*/
+    position: relative;
+    height: 9rem;
+    /************/
 }
 
-.header__image-container{
+.header-image-container{
+    /*testeando*/
+    position: absolute;
+    top: var(--logo-initial-position);
+    /************/
+    
     height: 4rem;
     border-radius: 10%;
     overflow: hidden;
     transition: all 0.5s;
     box-shadow: 
         0.20rem 0.20rem 0rem 0.20rem var(--color-primary-highlight);
+
+    animation: levitate 1.5s ease-in-out 2s infinite alternate;
 }
 
-.header__image-container:hover{
+.header-image-container:hover{
     height: 4.5rem;
     cursor: pointer;
     rotate: 360deg;
@@ -75,15 +102,87 @@
 
 .header__h1{
     text-align: center;
-    padding: 0 1rem;
+    margin: 0;
     font-size: 2rem;
     color:var(--color-text);
     animation: zoom 1.5s ease-in-out 2s infinite alternate;
+    padding: 0.5rem 0.5rem;
+
+    /*testeando*/
+    position: absolute;
+    top: 5rem;
 }
 
 .header__image{
     width: 100%;
     height: 100%;
+}
+
+.header-menu{
+    margin-top: 0.5rem;
+    padding: 0;
+    position: relative;
+}
+
+.header-menu-container{
+    position: absolute;
+    display: flex;
+    right: 0;
+    top: 0;
+    height: 0;
+    width: 100%;
+    background-color: var(--color-background-header);
+    z-index: 1000;
+}
+
+.header-menu__icon-label{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 0.55rem;
+    top: 0.55rem;
+    height: 2rem;
+    z-index: 1001;
+    font-size: 2rem;
+    color:var(--color-text);
+    border: 2px solid;
+    border-radius: 10%;
+}
+
+.header-menu__menu-check{
+    display: none;
+}
+
+.header-menu__list{
+    padding: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--color-background-header);
+    opacity: 80%;*
+    gap: 2rem;
+}
+
+.header-menu__list-item{
+    list-style: none;
+    margin:0 0.7rem;
+    font-size: 1.5rem;
+}
+
+.header-menu__list-item-nav{
+    text-decoration: none;
+    color:var(--color-text);
+}
+
+.header-menu__icon-label:hover{
+    border: 4px solid;
+}
+
+.header-menu__menu-check:checked + .header-menu__list {
+    display: flex;
+    height: 100vh;
 }
 
 .section-contacto__h2{
@@ -95,7 +194,6 @@
 .section-contacto_container{
     max-width: var(--container-max-width);
     background-color: var(--color-background-section-contacto);
-    align-items: center;
     margin: auto;
     border-radius: 0.5rem;
     padding: 0 1rem;
@@ -165,4 +263,43 @@
 .section-oficinas-table-td{
     border: 1px solid var(--color-background-header);
     word-wrap: break-word;
+}
+
+@media (min-width: 856px) {
+    .header-container{
+        background-color: var(--color-background-header);
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+        max-width: var(--container-max-width);
+        margin: auto;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .header-menu__list{
+        display: flex;
+        flex-direction: row;
+        padding: 0.5rem;
+        align-items: center;
+        gap: 0;
+        opacity: 100%;
+    }
+
+    .header-menu-container{
+        position: static;
+        display: flex;
+        opacity: 100%;
+        width: 100%;
+        max-width: var(--container-max-width);
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+        height: 2.5rem;
+    }
+ 
+    .header-menu__icon-label{
+        display: none;
+    }
+    
 }

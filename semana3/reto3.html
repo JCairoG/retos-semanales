@@ -34,14 +34,42 @@
   </head>
 
 <body class="body">
-    
+
   <header class="header">
-    <div class="header_container">
-      <figure class="header__image-container">
+    
+    <div class="header-container">
+      <figure class="header-image-container">
         <img class="header__image" src="./rsc/img/foto.jpg" alt="Logo Empresa"/>
       </figure>
       <h1 class="header__h1">Contáctese con nosotros</h1>
     </div>
+
+    <div class="header-menu-container">
+      <label class="header-menu__icon-label" for="header-menu__menu-check">
+        <i class="bi bi-list"></i>
+      </label>
+  
+      <input class="header-menu__menu-check" type="checkbox" id="header-menu__menu-check">
+  
+      <ul class="header-menu__list">
+        <li class="header-menu__list-item">
+          <a href="#" class="header-menu__list-item-nav">Quienes somos</a>  
+        </li>
+  
+        <li class="header-menu__list-item">
+          <a href="#" class="header-menu__list-item-nav">Nuestros Proyectos</a>     
+        </li>
+  
+        <li class="header-menu__list-item">
+          <a href="#" class="header-menu__list-item-nav">Nuestros Clientes</a>     
+        </li>
+  
+        <li class="header-menu__list-item">
+          <a href="#" class="header-menu__list-item-nav">Contáctenos</a>     
+        </li>
+      </ul>
+    </div>
+  
   </header>
 
   <section class="section-contacto">
@@ -86,7 +114,7 @@
       </label>
       <input class="section-contacto__input" type="text" id="nombre" placeholder="Datos de la persona a contactar" required>
       <br>
-      <input class="section-contacto__button-acept" id="btnSubmit" type="submit" value="Ahora si hay boton. Haga click" title="Click para enviar">
+      <input class="section-contacto__button-acept" id="btnSubmit" type="submit" value="Ahora si hay un botón (Haga click)" title="Click para enviar">
 
     </div>
     </form>

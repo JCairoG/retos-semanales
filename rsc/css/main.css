@@ -103,12 +103,15 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: url("https://jcairog.github.io/retos-semanales/rsc/img/img_go.jpg") no-repeat;
+  background: url("/rsc/img/img_go.jpg") no-repeat;
   background-size: contain;
 }
 
 .section-list__item-container:hover{
-  background: url("https://jcairog.github.io/retos-semanales/rsc/img/img_go_hover.jpg") no-repeat;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: url("/rsc/img/img_go_hover.jpg") no-repeat;
   background-size: contain;
 }
 

@@ -1,11 +1,11 @@
 :root{
-    /*
-    color: #2357ad;
-    color: #2982c1;
-    color: #29aeca;
-    color: #44cbcb;
-    color: #d7eaea;
-    */
+    --color-box-shadow-1:#2357ad;
+    --color-box-shadow-2:#2982c1;
+    --color-box-shadow-3:#29aeca;
+    --color-box-shadow-4:#44cbcb;
+    --color-box-shadow-5:#d7eaea;
+    --color-text-shadow: #d7eaea;
+    
     --color-background-body:#d7eaea;
     --color-background-header:#2982c1;
     --color-background-section-contacto: #44cbcb;
@@ -21,8 +21,8 @@
     0% {
         transform: scale(1);
         text-shadow:
-        0 1rem 0.25rem var(--color-primary-highlight),
-        0.5rem 0rem 1rem var(--color-primary-highlight);
+            0 1rem 0.25rem var(--color-primary-highlight),
+            0.5rem 0rem 1rem var(--color-primary-highlight);
     }
     
     50%{
@@ -33,12 +33,12 @@
     100%{
         transform: scale(1.3);
         text-shadow:
-        0 1rem 0.25rem var(--color-primary-highlight),
-        0.5rem 0rem 1rem var(--color-primary-highlight);
+            0 1rem 0.25rem var(--color-primary-highlight),
+            0.5rem 0rem 1rem var(--color-primary-highlight);
     }
   }
 
-  @keyframes levitate {
+@keyframes levitate {
     0% {
         top: var(--logo-initial-position);
         transform: rotate(10deg);
@@ -89,7 +89,8 @@
     overflow: hidden;
     transition: all 0.5s;
     box-shadow: 
-        0.20rem 0.20rem 0rem 0.20rem var(--color-primary-highlight);
+        0.125rem 0.125rem 0.125rem 0.125rem var(--color-box-shadow-2),
+        0.25rem 0.25rem 0.25rem 0.125rem var(--color-box-shadow-3);
 
     animation: levitate 1.5s ease-in-out 2s infinite alternate;
 }
@@ -145,8 +146,14 @@
     z-index: 1001;
     font-size: 2rem;
     color:var(--color-text);
-    border: 2px solid;
-    border-radius: 10%;
+    border-radius: 0.35rem;
+    text-shadow: 
+        0 0 0.125rem var(--color-box-shadow-5),
+        0.125rem 0.125rem 0.25rem var(--color-box-shadow-4);
+}
+
+.header-menu__icon-label:hover{
+    color:var(--color-box-shadow-4);
 }
 
 .header-menu__menu-check{
@@ -169,6 +176,13 @@
     list-style: none;
     margin:0 0.7rem;
     font-size: 1.5rem;
+    text-shadow: 
+        0 0 0.125rem var(--color-box-shadow-5),
+        0 0.125rem 0.25rem var(--color-box-shadow-4);
+}
+
+.header-menu__list-item:hover{
+    filter: brightness(200%);
 }
 
 .header-menu__list-item-nav{
@@ -176,28 +190,33 @@
     color:var(--color-text);
 }
 
-.header-menu__icon-label:hover{
-    border: 4px solid;
-}
 
 .header-menu__menu-check:checked + .header-menu__list {
     display: flex;
     height: 100vh;
 }
 
+.section-contacto{
+    margin-top: 0.5rem;
+}
+
 .section-contacto__h2{
-    font-size: 1.5rem;
+    margin: 0;
+    font-size: 1.2rem;
     color:var(--color-text);
     padding: 0.5rem 0rem;
 }
 
-.section-contacto_container{
+.section-contacto-container{
     max-width: var(--container-max-width);
     background-color: var(--color-background-section-contacto);
     margin: auto;
     border-radius: 0.5rem;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     box-sizing: border-box;
+    box-shadow: 
+        0.25rem 0.25rem 0.125rem var(--color-box-shadow-2),
+        0.125rem 0.125rem 0.25rem var(--color-box-shadow-3);
 }
 
 .section-contacto__label{
@@ -205,12 +224,20 @@
     font-size: 1.1rem;
     color:var(--color-text);
     width: 150px;
+    height: 30px;
 }
 
 .section-contacto__input{
     width: 320px;
     border-style: none;
-    height: 27px;
+    height: 22px;
+}
+
+.section-contacto__input:focus{
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--color-box-shadow-3);
+    background-color: var(--color-box-shadow-5);
 }
 
 .section-contacto__button-acept{
@@ -229,12 +256,20 @@
     margin: 1rem auto;
     justify-content:space-around;
     max-width: var(--container-max-width);
+    border-radius: 0.5rem;
+    box-shadow: 
+        0.25rem 0.25rem 0.125rem var(--color-box-shadow-2),
+        0.125rem 0.125rem 0.25rem var(--color-box-shadow-3);
 }
 
 .section-oficinas__h2{
     margin: 0;
     font-size: 1.5rem;
-    color:var(--color-text);
+    color:var(--color-background-header);
+    text-shadow: 
+        0 0.125rem 0.125rem var(--color-box-shadow-4),
+        0.125rem 0.25rem 0.25rem var(--color-box-shadow-5);
+
 }
 
 .section-oficinas-table{
@@ -301,5 +336,16 @@
     .header-menu__icon-label{
         display: none;
     }
-    
+ 
+    .section-contacto{
+        margin-top: 1rem;
+    }
+    .section-contacto__h2{
+        margin: 0;
+        font-size: 1.8rem;
+        color:var(--color-text);
+        padding: 0.5rem 0rem;
+    }
+   
+
 }

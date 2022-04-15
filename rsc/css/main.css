@@ -1,14 +1,52 @@
+  /*
+  #2357ad;
+    #2982c1;
+    #29aeca;
+    #44cbcb;
+    #d7eaea;
+*/
 :root{
+
   --section-width:640px;
   
   --color-text-header:white;
   --color-text-section-container:white;
   --color-list-item:white;
   --color-list-title:white;
+  --color-box-shadow-1:#2357ad;
+  --color-box-shadow-2:#2982c1;
+  --color-box-shadow-3:#29aeca;
+  --color-box-shadow-4:#44cbcb;
+  --color-box-shadow-5:#d7eaea;
+  --color-text-shadow: #d7eaea;
  
   --color-background-header: #4478AB;
   --color-background-body: #65ADF7;
   --color-background-section: #5492D1;
+}
+
+@keyframes goButton-action {
+  0%{
+      top:-0.5rem;
+  }
+
+  50%{
+    transform: rotate(180deg);
+  }
+
+  100%{
+    top: 0.5rem;
+  }
+}
+
+@keyframes header-image-action {
+  0%{
+    transform: rotateY(-90deg);
+  }
+
+  100%{
+    transform: rotateY(90deg);
+  }
 }
 
 .body{
@@ -17,12 +55,11 @@
 }
 
 .header{
-
+ 
 }
 
-.header_container{
+.header-container{
   background-color:var(--color-background-header);
-  border-color: var(--color-text-header);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,81 +67,106 @@
   max-width: var(--section-width);  
   margin: auto;  
   flex-wrap: wrap;
-  padding: 1rem 1rem;
-  border-style: groove;
-  border-radius: 1%;
+  padding: 0.5rem 0.5rem;
+  border-radius: 1rem;
   box-sizing: border-box;
+  box-shadow: 
+    0 0 0.125rem var(--color-box-shadow-4),
+    0 0 0.25rem var(--color-box-shadow-5);
 }
 
-.header_image{
+.header__figure-container{
+  margin: 0;
   width: 64px;
-  height: 64px;
+}
+
+.header__image{
+  width: 100%;
   border-radius: 25%;
-  transition: all 0.25s;
+  transition: all 0.5s;
+  box-shadow: 
+    0.25rem 0.125rem 0.125rem var(--color-text-shadow),
+    0.125rem 0 0 var(--color-text-shadow);
+  animation: header-image-action 3s ease-out 1s infinite alternate;
 }
 
-.header_image:hover{
-  width: 128px;
-  height: 128px;
+.header__image:hover{
+  width: 96px;
 }
 
-.header_h1, .header_h2{
+.header__h1 {
   text-align: center;
   margin: 0;
   color:var(--color-text-header);
+  text-shadow: 
+    0.25rem 0.125rem 0.125rem var(--color-text-shadow),
+    0.125rem 0 0 var(--color-text-shadow);
+}
+
+.header__h2{
+  text-align: center;
+  margin: 0.25rem;
+  color:var(--color-text-header);
+  font-size: 1rem;
 }
 
 .main{
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 .section{
-  display: flex;
-  align-items: center;
   max-width: var(--section-width);
   margin: auto;
-  background-color: var(--color-background-section);
 }
 
-.section_container{
+.section-container{
   background-color: var(--color-background-section);
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
-  border-radius: 1%;
+  max-width: var(--section-width);
+  box-decoration-break: slice;
+  box-shadow: 
+    0 0 0.125rem var(--color-box-shadow-1),
+    0 0 0.25rem var(--color-box-shadow-1);
 }
 
-.section_h2{
+.section__h2{
   margin:0;
   color: var(--color-list-title);
   background-color: var(--color-background-header);
   padding: 0.5rem 0.5rem;
+  font-size: 1.2rem;
 }
 
 .section-list{
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  left: 0;
+  padding: 0;
 }
 
 .section-list__item{
   display: flex;
   align-items: center;
   color:var(--color-list-item);
-  padding: 0.5rem;
-  width: 300px;
+  height: 2rem;
+  margin: 1rem;
+  position: relative;
 }
 
-.section-list__item-label{
-  width: 300px;
+.section-list__item-h3{
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 300;
 }
 
 .section-list__item-container{
+  position: absolute;
+  right: 0;
   width: 32px;
   height: 32px;
   border-radius: 50%;
   background: url("../img/img_go.jpg") no-repeat;
   background-size: contain;
+  animation: goButton-action 1s ease-in-out 0.5s infinite alternate;
 }
 
 .section-list__item-container:hover{
@@ -116,15 +178,17 @@
 }
 
 .footer{
-  display:flex;
+  display: flex;
   margin: 0.50rem auto;
   background-color:var(--color-background-header);
   max-width: var(--section-width);
-  border-style: groove;
-  border-color: var(--color-text-header);
-  border-radius: 1%;
+  border-radius: 0.25rem;
   width: 100%;
   box-sizing: border-box;
+  box-shadow: 
+    0 0 0.125rem var(--color-box-shadow-4),
+    0 0 0.25rem var(--color-box-shadow-5);
+
 }
 
 .footer_container{

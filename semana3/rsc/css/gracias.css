@@ -1,13 +1,17 @@
 :root{
-  --color-theme-primary:#2982c1;
-  --color-theme-intermediate:#44cbcb ;
-  --color-theme-secondary: #d7eaea;
-  --color-letter-primary: #873a76;
-  --color-letter-secondary: #873a76;
-  --color-primary-highlight: #ff7697;
+
+  --color-theme-primary:#29aeca;
+  --color-theme-intermediate:#44cbcb;
+  --color-theme-secondary:#d7eaea;
+
+  --color-letter-primary: #2357ad;
+  --color-letter-secondary: #2982c1;
+  
+  --color-primary-highlight: #83e7e7;
+  --color-primary-highlight: #d7eaea;
   --font-size-desktop: 8rem;
   --font-size-desktop-hover:12rem;
-  --font-size: 2.5rem;
+  --font-size: 5rem;
   --font-size-hover: 8rem;
   --all-transitions: all 1s;
 }
@@ -24,29 +28,32 @@
   }
 
   50%{
-    left: 15%;
-    transform: scale(1.2);
+    left: 40%;
+    transform: scale(1.5);
   }
 
   100%{
-    left: 30%;
-    transform: scale(1.5);
+    left: 34%;
+    transform: scale(1);
   }
 }
 
 .body{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 0;
+  background-color: var(--color-theme-secondary);
 }
 
 .main{
   background-image: linear-gradient(to right, var(--color-theme-primary), var(--color-theme-intermediate), var(--color-theme-secondary));  margin: 0;
   margin: 0;
-  height: 50vh;
+  height: 100vh;
   overflow: hidden;
 }
 
 .main-section{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   min-height: 50vh;
@@ -58,10 +65,11 @@
   margin-top: 1rem;
   color: var(--color-letter-primary);
   filter: brightness(150%);
-  text-shadow:
-    0.20rem 0.20rem 0rem var(--color-primary-highlight);
+  text-shadow: 
+    0 0 0.125rem var(--color-letter-secondary),
+    0.125rem 0.125rem 0.25rem var(--color-theme-secondary);  
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .main-section__container{ /*anchor*/
@@ -69,18 +77,20 @@
   margin-top: 4rem;
   text-decoration: none;
   font-size: var(--font-size);
-   animation: spin 2s ease-in-out 2s infinite alternate;
-}
+  text-shadow: 
+    0 0 0.125rem var(--color-letter-secondary),
+    0.125rem 0.125rem 0.25rem var(--color-theme-secondary);  
+  animation: spin 3s ease-in-out 0s;
+ }
 
 .main-section-letter{
   position: relative;
 }
 
 .main-section-letter:nth-child(2n){
-  color: var(--color-letter-primary);
-  filter: brightness(150%);
+  color: var(--color-letter-secondary);
 }
 
 .main-section-letter:nth-child(2n+1){
-  color: var(--color-letter-secondary);
+  color: var(--color-letter-primary);
 }

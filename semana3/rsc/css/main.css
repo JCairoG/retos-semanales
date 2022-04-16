@@ -99,6 +99,8 @@
 
 .header-image-container{
     position: absolute;
+    margin: 0;
+    width: 64px;
     top: var(--logo-initial-position);
     height: 4rem;
     border-radius: 10%;
@@ -117,6 +119,11 @@
     rotate: 360deg;
 }
 
+.header__image{
+    width: 100%;
+    height: 100%;
+}
+
 .header__h1{
     text-align: center;
     margin: 0;
@@ -126,11 +133,6 @@
     padding: 0.5rem 0.5rem;
     position: absolute;
     top: 5rem;
-}
-
-.header__image{
-    width: 100%;
-    height: 100%;
 }
 
 .header-menu{

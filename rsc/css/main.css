@@ -1,6 +1,6 @@
 :root{
 
-  --section-width:1024px;
+  --section-width:960px;
   
   --color-text-header:white;
   --color-text-section-container:white;
@@ -24,7 +24,7 @@
   }
 
   50%{
-    transform: rotate(180deg);
+    transform: rotateX(90deg);
   }
 
   100%{
@@ -88,8 +88,8 @@
   margin: 0;
   color:var(--color-text-header);
   text-shadow: 
-    0.25rem 0.125rem 0.125rem var(--color-text-shadow),
-    0.125rem 0 0 var(--color-text-shadow);
+    0 0.125rem 0.125rem var(--color-box-shadow-3),
+    0.125rem 0.125rem 0.125rem var(--color-box-shadow-4);
 }
 
 .header__h2{
@@ -133,18 +133,26 @@
 }
 
 .section-list__item{
+  max-width: calc(var(--section-width)/2);
   display: flex;
   align-items: center;
-  color:var(--color-list-item);
   height: 2rem;
   margin: 1rem;
   position: relative;
 }
 
-.section-list__item-h3{
+.section-list__item-nav{
+  color:var(--color-list-item);
   font-size: 1rem;
-  margin: 0;
   font-weight: 300;
+  text-decoration: none;
+}
+
+.section-list__item-nav:hover{
+  cursor: pointer;
+  text-shadow: 
+    0 0.125rem 0.125rem var(--color-box-shadow-3),
+    0.125rem 0.125rem 0.125rem var(--color-box-shadow-4);
 }
 
 .section-list__item-container{
@@ -155,7 +163,7 @@
   border-radius: 50%;
   background: url("../img/img_go.jpg") no-repeat;
   background-size: contain;
-  animation: goButton-action 1s ease-in-out 0.5s infinite alternate;
+  animation: goButton-action 1.5s ease-in-out var(--delay) infinite alternate;
 }
 
 .section-list__item-container:hover{

@@ -85,15 +85,16 @@
     background-color: var(--color-background-header);
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: center;
     max-width: var(--container-max-width);
     width: 100%;
-    /*margin: auto;*/
+    margin: auto;   /*centra la seccion en la pagina*/
     flex-wrap: wrap;
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
     height: 9rem;
+    box-sizing: border-box;
 }
 
 .header-image-container{
@@ -141,6 +142,7 @@
 .header-menu-container{
     position: absolute;
     display: flex;
+    margin: auto; /*centra la seccion en la pagina*/
     right: 0;
     top: 0;
     height: 0;
@@ -218,13 +220,13 @@
 }
 
 .section-contacto-container{
-    overflow:hidden;
+    overflow: hidden;
     max-width: var(--container-max-width);
     background-color: var(--color-background-section-contacto);
-    margin: auto;
+    margin: 0.5rem auto; /*centra la seccion en la pagina*/
     border-radius: 0.5rem;
-    padding: 0 0.5rem;
     box-sizing: border-box;
+    padding: 0 0.5rem;
     box-shadow: 
         0.25rem 0.25rem 0.125rem var(--color-box-shadow-2),
         0.125rem 0.125rem 0.25rem var(--color-box-shadow-3);
@@ -259,11 +261,10 @@
     border-color: #29aeca;
     border-width: 3px;
 }
-
 .section-oficinas__container{
     display: flex;
     flex-direction: column;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
     justify-content:space-around;
     max-width: var(--container-max-width);
     border-radius: 0.5rem;
@@ -312,14 +313,14 @@
 
 .footer{
     display: flex;
-    /*margin: 1rem auto;*/
-    max-width: var(--container-max-width);
 }
   
 .footer-container{
+    margin: 0.5rem auto; /*centra la seccion en la pagina*/
     display: flex;
     width: 100%;
     justify-content: center;
+    max-width: var(--container-max-width);
     color: var(--color-text);
     background-color:var(--color-background-section-contacto);
     padding: 0.5rem 0;
@@ -334,10 +335,10 @@
     background-color: var(--color-background-section-contacto);
     display: flex;
     justify-content: center;
-    /*flex-direction: column;*/
     max-width: var(--container-max-width);
     gap: 1rem;
     border-radius: 0.5rem;
+    margin-top: 0.5rem;
     padding: 0.5rem 0.75rem;
     height: 100%;
     width: 100%;
@@ -367,9 +368,8 @@
         background-color: var(--color-background-header);
         display: flex;
         align-items: center;
-        justify-content:space-around;
+        justify-content: space-around;
         max-width: var(--container-max-width);
-        margin: auto;
         border-radius: 0.5rem;
         overflow: hidden;
     }
@@ -389,7 +389,6 @@
         opacity: 100%;
         width: 100%;
         max-width: var(--container-max-width);
-        margin: auto;
         justify-content: center;
         align-items: center;
         height: 2.5rem;
@@ -403,13 +402,19 @@
         margin-top: 1rem;
     }
 
+    .aside-links{
+        top:0;
+        margin: 0;
+    }
+
     .aside-links-container{
         flex-direction: column;
         justify-content:flex-start;        
+        box-sizing: border-box;
     }
 
-    .aside-links{
-        margin-top: 1rem;
+    .grid-aside-links { 
+        display: flex;
     }
 
     .section-contacto__h2{

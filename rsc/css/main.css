@@ -133,7 +133,7 @@
 }
 
 .section-list__item{
-  max-width: calc(var(--section-width)/2);
+  max-width: calc(var(--section-width)*0.75);
   display: flex;
   align-items: center;
   height: 2rem;
@@ -146,6 +146,7 @@
   font-size: 1rem;
   font-weight: 300;
   text-decoration: none;
+  max-width:  calc(var(--section-width)*0.33);
 }
 
 .section-list__item-nav:hover{

@@ -4,7 +4,6 @@
   grid-template-columns: 100%;
   grid-template-rows: auto auto auto auto; 
   grid-template-areas: 
-  
     "header"
     "section-contacto"
     "section-oficinas"

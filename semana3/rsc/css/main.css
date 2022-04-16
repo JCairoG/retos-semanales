@@ -218,7 +218,7 @@
 }
 
 .section-contacto-container{
-    overflow:scroll;
+    overflow:hidden;
     max-width: var(--container-max-width);
     background-color: var(--color-background-section-contacto);
     margin: auto;
@@ -333,7 +333,8 @@
 .aside-links-container{
     background-color: var(--color-background-section-contacto);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    /*flex-direction: column;*/
     max-width: var(--container-max-width);
     gap: 1rem;
     border-radius: 0.5rem;
@@ -400,6 +401,11 @@
  
     .section-contacto{
         margin-top: 1rem;
+    }
+
+    .aside-links-container{
+        flex-direction: column;
+        justify-content:flex-start;        
     }
 
     .aside-links{

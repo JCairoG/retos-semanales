@@ -1,13 +1,14 @@
 .grid-body {
+  padding: 0 0.5rem;
   display: grid;
-  justify-content: center;
-  grid-template-columns: 82% 15%;
-  grid-template-rows: auto auto auto; 
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto auto; 
   grid-template-areas: 
-      "header header"
-      "section-contacto aside-links"
-      "section-oficinas section-oficinas"
-      "footer footer";
+    "header"
+    "section-contacto"
+    "section-oficinas"
+    "aside-links"
+    "footer";
   grid-gap: 0.5rem;
   max-width: var(--container-max-width);
 }
@@ -26,9 +27,29 @@
 
 .grid-aside-links { 
   grid-area: aside-links;
-  display: flex;
 }
 
 .grid-footer { 
   grid-area: footer;
+}
+
+@media (min-width: 856px) {
+
+  .grid-body {
+    justify-content: center;
+    grid-gap: 0.5rem;
+    max-width: var(--container-max-width);
+    grid-template-columns: 85% 15%;
+    grid-template-rows: auto auto auto; 
+    grid-template-areas: 
+      "header header"
+      "section-contacto aside-links"
+      "section-oficinas section-oficinas"
+      "footer footer";
+  }
+
+  .grid-aside-links { 
+    display: flex;
+  }
+  
 }

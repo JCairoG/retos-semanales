@@ -77,7 +77,7 @@
 
 .body{
     font-family: 'Oswald', sans-serif;
-    min-height: 150vh; /*barra desplazamiento*/
+    min-height: 90vh; /*barra desplazamiento*/
     background-color: var(--color-background-body);
 }
 
@@ -87,7 +87,8 @@
     align-items: center;
     justify-content:space-around;
     max-width: var(--container-max-width);
-    margin: auto;
+    width: 100%;
+    /*margin: auto;*/
     flex-wrap: wrap;
     border-radius: 0.5rem;
     overflow: hidden;
@@ -152,7 +153,7 @@
     position: absolute;
     display: flex;
     align-items: center;
-    right: 0.55rem;
+    right: 1rem;
     top: 0.55rem;
     height: 2rem;
     z-index: 1001;
@@ -209,10 +210,6 @@
     animation: popup-menu 1s ease-in-out 0s;
 }
 
-.section-contacto{
-    margin-top: 0.5rem;
-}
-
 .section-contacto__h2{
     margin: 0;
     font-size: 1.2rem;
@@ -221,6 +218,7 @@
 }
 
 .section-contacto-container{
+    overflow:scroll;
     max-width: var(--container-max-width);
     background-color: var(--color-background-section-contacto);
     margin: auto;
@@ -255,7 +253,6 @@
 
 .section-contacto__button-acept{
     position: relative;
-    width: 250px;
     height: 35px;
     left: 20%;
     margin: 1rem 1rem;
@@ -315,35 +312,34 @@
 
 .footer{
     display: flex;
-    margin: 0.50rem auto;
-    background-color:var(--color-background-header);
+    /*margin: 1rem auto;*/
     max-width: var(--container-max-width);
-    border-radius: 0.25rem;
-    width: 100%;
-    box-sizing: border-box;
-    box-shadow: 
-      0 0 0.125rem var(--color-box-shadow-4),
-      0 0 0.25rem var(--color-box-shadow-5);
 }
   
 .footer-container{
     display: flex;
+    width: 100%;
     justify-content: center;
-    margin: auto;
     color: var(--color-text);
+    background-color:var(--color-background-section-contacto);
     padding: 0.5rem 0;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    box-shadow: 
+        0.25rem 0.25rem 0.125rem var(--color-box-shadow-2),
+        0.125rem 0.125rem 0.25rem var(--color-box-shadow-3);
 }
 
 .aside-links-container{
     background-color: var(--color-background-section-contacto);
     display: flex;
     flex-direction: column;
-    margin: 1rem 0.25rem;
     max-width: var(--container-max-width);
     gap: 1rem;
     border-radius: 0.5rem;
     padding: 0.5rem 0.75rem;
     height: 100%;
+    width: 100%;
     box-sizing: border-box;
     box-shadow: 
         0.25rem 0.25rem 0.125rem var(--color-box-shadow-2),
@@ -355,7 +351,7 @@
     color: var(--color-text);
     font-size: 1.2rem;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     text-shadow: 
         0 0 0.125rem var(--color-box-shadow-4),
         0 0.125rem 0.25rem var(--color-box-shadow-5);
@@ -405,6 +401,11 @@
     .section-contacto{
         margin-top: 1rem;
     }
+
+    .aside-links{
+        margin-top: 1rem;
+    }
+
     .section-contacto__h2{
         margin: 0;
         font-size: 1.8rem;

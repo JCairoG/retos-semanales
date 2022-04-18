@@ -159,8 +159,8 @@
 .section-list__item-container{
   position: absolute;
   right: 0;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: url("../img/img_go.jpg") no-repeat;
   background-size: contain;
@@ -168,10 +168,10 @@
 }
 
 .section-list__item-container:hover{
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: url("../img/img_go_hover.jpg") no-repeat;
+  background: url("../img/img_go_hover.png") no-repeat;
   background-size: contain;
 }
 

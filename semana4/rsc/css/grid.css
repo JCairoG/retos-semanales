@@ -9,7 +9,7 @@
     "aside-links"
     "footer";
   gap: 0.5rem;
-  max-width: 1024px;
+  max-width: var(--container-max-width);
 }
 
 .header--grid { 
@@ -32,7 +32,7 @@
   grid-area: footer;
 }
 
-@media (min-width: 856px) {
+@media (min-width: 800px) {
 
   .body--grid {
     grid-template-columns: auto auto;

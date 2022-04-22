@@ -1,0 +1,237 @@
+@import 'variables'
+@import 'mixins'
+@import 'keyframes'
+ 
+.body
+  font-family: 'Oswald', sans-serif
+  background-color: var(--color-background-body)
+  display: flex
+  margin: auto
+
+.header
+  @include container-style(linear-gradient(var(--color-gradient-from),var(--color-gradient-to)))
+  display: flex
+  margin: 0
+
+.header-container
+  max-width: var(--container-max-width)
+  box-sizing: border-box
+  border-radius: 0.5rem
+  padding: var(--padding-section)
+
+.header-image-container
+  margin: 0
+  height: 48px
+  border-radius: 0.5rem
+  overflow: hidden
+  transition: all 0.5s
+  animation: shining-logo 1.5s linear 0s infinite alternate
+
+.header-image-container:hover
+  cursor: pointer
+
+.header__image
+  width: 100%
+  height: 100%
+
+.header-menu
+  margin-top: 0.5rem
+  padding: 0
+  position: relative
+
+.header-menu-container
+  position: absolute
+  display: flex
+  margin: auto /*centra la seccion en la pagina*/
+  right: 0
+  top: 0
+  height: 0
+  width: 100%
+  z-index: 1000
+
+  @include desktop()
+    position: static
+    opacity: 100%
+    max-width: var(--container-max-width)
+    justify-content: center
+    align-items: center
+    height: 2.5rem
+
+.header-menu__icon-label
+  position: absolute
+  display: flex
+  align-items: center
+  right: 1rem
+  top: 0.55rem
+  height: 2rem
+  z-index: 1001
+  border-radius: 0.35rem
+  text-shadow: 0 0 0.125rem var(--color-box-shadow5), 0.125rem 0.125rem 0.25rem var(--color-box-shadow4)
+
+  @include desktop
+    display: none
+
+.header-menu__menu-check
+    display: none
+
+.header-menu__list
+  @include container-style (var(--color-box-shadow2))
+  padding: 0
+  display: none
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  width: 100%
+  opacity: 80%
+  gap: 2rem
+
+  @include desktop()
+    display: flex
+    flex-direction: row
+    padding: 0.5rem
+    align-items: center
+    gap: 0
+    opacity: 100%
+    background-color: transparent
+
+.header-menu__list-item
+  list-style: none
+  margin: 0 0.7rem
+  font-size: 1.5rem
+  text-shadow: 0 0 0.125rem var(--color-box-shadow5), 0 0.125rem 0.25rem var(--color-box-shadow4)
+
+  &.hover
+    filter: brightness(200%)
+
+.header-menu__list-item-nav
+  text-decoration: none
+  color: var(--color-text)
+
+.header-menu__menu-check:checked + .header-menu__list
+  display: flex
+  height: 100vh
+  animation: popup-menu 1s ease-in-out 0s
+
+.header__title
+  @include text-style("h1", left)
+  background: linear-gradient(var(--color-gradient-from),var(--color-gradient-to))
+  padding: 0.5rem 0.5rem
+
+.section-contacto__title
+  @include text-style ("h2", left)
+  padding: 0.75rem 0
+  color: var(--color-text-input)
+  
+.section-contacto-container
+  display: flex
+  flex-direction: column
+  overflow: hidden
+  max-width: var(--container-max-width)
+  margin: 0.5rem auto    /*centra la seccion en la pagina*/
+  border-radius: 0.5rem
+  box-sizing: border-box
+  padding: 0 1rem
+  box-shadow: 0 0 0.125rem var(--color-box-shadow2), 0 0 0.25rem var(--color-box-shadow3)
+  background: linear-gradient(var(--color-secondary-gradient-from),var(--color-secondary-gradient-to))
+
+.bi
+  font-size: 1.1rem
+  color: var(--color-box-shadow2)
+
+.bi-list
+  font-size: 2.5rem
+  color: var(--color-text)
+
+  &:hover
+    color: var(--color-box-shadow2)
+
+.bi-building
+  font-size: 1.5rem
+
+.section-contacto__input
+  @include text-style ("input-text")
+  outline: none
+  background: none
+  border: none
+  border-bottom-style: none
+  border-bottom: 1px solid var(--color-box-shadow2)
+  width: 100%
+  padding: 0.75em 0em
+  
+  &:focus
+    border-width: 3px
+    border-color: var(--color-box-shadow2)
+
+.section-contacto__nav-acept-button
+  @include button-style ()
+  margin: 1rem 0
+  max-width: 200px
+
+.section-oficinas__title
+  @include text-style ("h2")
+  background: linear-gradient(var(--color-gradient-from),var(--color-gradient-to))
+  padding: 0.5rem 0.5rem
+
+.section-oficinas__container
+  @include container-style (transparent)
+  margin: 0.5rem auto    
+  max-width: var(--container-max-width)
+  box-shadow: 0 0 0.125rem var(--color-box-shadow2), 0 0 0.25rem var(--color-box-shadow3)
+  background: url(../img/bg_top3.jpg)
+  background-size: cover
+
+.section-oficinas-table
+  table-layout: fixed
+  padding: 0.125rem 0.125rem
+
+.section-oficinas-table-header
+  @include table-header-style ()
+  width: 300px
+
+.section-oficinas-table-row
+  @include table-row-style()
+
+.section-oficinas-table-td
+  @include table-col-style()
+
+.footer-container
+  @include container-style (linear-gradient(var(--color-gradient-from),var(--color-gradient-to)))
+  @include text-style ("h4",center)
+  padding: 0.25rem 0.25rem 0
+  margin: 0.25rem auto /*centra la seccion en la pagina*/
+  display: flex
+  justify-content: center
+  max-width: var(--container-max-width)
+
+.aside-links
+  @include desktop()
+    top:0
+    margin: 0
+
+.aside-links-container
+  display: flex
+  justify-content: center
+  align-items: center
+  max-width: var(--container-max-width)
+  gap: 1rem
+  margin-top: 0.5rem
+  padding: 0.5rem 0.75rem
+  height: 100%
+  box-sizing: border-box
+  @include container-style (linear-gradient(var(--color-gradient-from),var(--color-gradient-to)))
+
+  @include desktop
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+.aside-links__nav
+  text-decoration: none
+  color: var(--color-text)
+  font-size: 1.2rem
+  margin: 0
+  font-size: 1.1rem
+  text-shadow: 0 0 0.125rem var(--color-box-shadow4), 0 0.125rem 0.25rem var(--color-box-shadow5)
+
+  &:hover
+    filter: brightness(200%)

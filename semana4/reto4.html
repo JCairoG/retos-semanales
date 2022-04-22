@@ -32,93 +32,83 @@
     <meta property="twitter:title" content="Contáctese con nosotros">
     <meta property="twitter:description" content="Dejenos sus datos y nos contactaremos con Ud a la brevedad">
     <meta property="twitter:image" content="https://github.com/JCairoG/retos-semanales/rsc/img/img_seo.jpg">
-   
   </head>
 
   <body class="body body--grid">
   
     <header class="header header--grid">
-        <div class="header-container">
-          <figure class="header-image-container">
-            <img class="header__image" src="./rsc/img/foto.jpg" alt="Logo Empresa"/>
-          </figure>
-          <h1 class="header__h1">Contáctese con nosotros</h1>
-        </div>
+      <div class="header-container">
+        <figure class="header-image-container">
+          <a href="#" class="header-image__nav">
+            <img class="header__image" src="./rsc/img/logo.gif" alt="Logo Empresa"/>
+          </a>
+        </figure>
+      </div>
 
-        <div class="header-menu-container">
-          <label class="header-menu__icon-label" for="header-menu__menu-check">
-            <i class="bi bi-list"></i>  
-          </label>
-          <input class="header-menu__menu-check" type="checkbox" id="header-menu__menu-check">
+      <div class="header-menu-container">
+        <label class="header-menu__icon-label" for="header-menu__menu-check">
+          <i class="bi bi-list"></i>  
+        </label>
+          
+        <input class="header-menu__menu-check" type="checkbox" id="header-menu__menu-check">
     
-          <ul class="header-menu__list">
-            <li class="header-menu__list-item">
-              <a href="#" class="header-menu__list-item-nav">Quienes somos</a>  
-            </li>
+        <ul class="header-menu__list">
+          <li class="header-menu__list-item">
+            <a href="#" class="header-menu__list-item-nav" onclick="do_nothing('abre')">Quienes somos</a>  
+          </li>
+          <li class="header-menu__list-item">
+            <a href="#" class="header-menu__list-item-nav" onclick="do_nothing('abre')">Nuestros Proyectos</a>     
+          </li>
+          <li class="header-menu__list-item">
+            <a href="#" class="header-menu__list-item-nav" onclick="do_nothing('abre')">Nuestros Clientes</a>     
+          </li>
+        </ul>
+      </div>
     
-            <li class="header-menu__list-item">
-              <a href="#" class="header-menu__list-item-nav">Nuestros Proyectos</a>     
-            </li>
-    
-            <li class="header-menu__list-item">
-              <a href="#" class="header-menu__list-item-nav">Nuestros Clientes</a>     
-            </li>
-          </ul>
-        </div>
     </header>
 
     <main class="main">
-
       <section class="section-contacto section-contacto--grid">
-        <form class="contacto" action="./reto3_gracias.html" target="_blank">
 
-        <div class="section-contacto-container">
-          <h2 class="section-contacto__h2">Déjenos sus datos y nos pondremos en contacto con Ud.</h2>
-        
-          <label class="section-contacto__label" for="raz_soc">
+        <form class="contacto" action="./reto3_gracias.html" target="_blank">
+          <h1 class="header__title">
+            <i class="bi bi-building"></i>
+            Contáctenos
+          </h1>  
+
+          <div class="section-contacto-container">
+            <h2 class="section-contacto__title">Déjenos sus datos y lo contactaremos a la brevedad</h2>
+            
             <i class="bi bi-person-circle"></i>
-            Razón Social
-          </label>
-          <input class="section-contacto__input" type="text" id="raz_soc" placeholder="Razon Social" required>
-          <br>
-          <label class="section-contacto__label" for="ruc">
+            <input class="section-contacto__input" type="text" id="raz_soc" placeholder="Razón Social" required>
+            
             <i class="bi bi-card-checklist"></i>
-            RUC
-          </label>
-          <input class="section-contacto__input" maxlength="11" type="text" id="ruc" placeholder="Número de RUC" required>
-          <br>
-          <label class="section-contacto__label" for="direc">
+            <input class="section-contacto__input" maxlength="11" type="text" id="ruc" placeholder="Número de RUC" required>
+
             <i class="bi bi-geo-alt"></i>
-            Dirección
-          </label>
-          <input class="section-contacto__input" type="text" id="direc" placeholder="Dirección de su empresa">
-          <br>
-          <label class="section-contacto__label" for="fono">
+            <input class="section-contacto__input" type="text" id="direc" placeholder="Dirección">
+
             <i class="bi bi-telephone"></i>
-            Teléfono(s)
-          </label>
-          <input class="section-contacto__input" minlength="9" type="text" id="fono" placeholder="+51" required>
-          <br>
-          <label class="section-contacto__label" for="mail">
+            <input class="section-contacto__input" minlength="9" type="text" id="fono" placeholder="Teléfono(s)" required>
+
             <i class="bi bi-envelope"></i>
-            E-Mail
-          </label>
-          <input class="section-contacto__input" type="text" id="mail" placeholder="Correo Electrónico" required>
-          <br>
-          <label class="section-contacto__label" for="nombre">
+            <input class="section-contacto__input" type="text" id="mail" placeholder="Correo Electrónico" required>
+
             <i class="bi bi-file-earmark-person-fill"></i>
-            Nombres y Apellidos
-          </label>
-          <input class="section-contacto__input" type="text" id="nombre" placeholder="Datos de la persona a contactar" required>
-          <br>
-          <input class="section-contacto__button-acept" id="btnSubmit" type="submit" value="Ahora si hay un botón (Haga click)" title="Click para enviar">
-        </div>
+            <input class="section-contacto__input" type="text" id="nombre" placeholder="Datos de la persona a contactar" required>
+            
+            <a href="#" class="section-contacto__nav-acept-button" onclick="do_nothing('envia')">Enviar</a>
+          </div>
         </form>
       </section>
 
       <section class="section-oficinas section-oficinas--grid">
+        <h2 class="section-oficinas__title">
+          <i class="bi bi-building"></i>
+          Nuestras Oficinas
+        </h2>
+
         <div class="section-oficinas__container">
-          <h2 class="section-oficinas__h2"><i class="bi bi-building"></i>Nuestras Oficinas</h2>
           <table class="section-oficinas-table">
             <thead">
               <tr>
@@ -152,22 +142,30 @@
           </table>
         </div>
       </section>
-    
     </main>
 
     <aside class="aside-links aside-links--grid">
       <div class="aside-links-container">
-        <a href="#" class="aside-links__nav">Mi Cuenta</a>  
-        <a href="#" class="aside-links__nav">Mis Productos</a>     
-        <a href="#" class="aside-links__nav">Ayuda</a>     
+        <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mi Cuenta</a>  
+        <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mis Productos</a>     
+        <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Ayuda</a>     
       </div>    
     </aside>
 
     <footer class="footer footer--grid">
       <div class="footer-container">
-        (A sexy footer soon)
+        <h4 class="footer-container__title">
+          Todos los derechos reservados - 2022  
+        </h4>
       </div>
     </footer>
+  
+  <script>
+    function do_nothing(action) {
+      alert ('Lo siento. Este botón no ' + action + ' nada');
+    }
+    
+  </script>
 
 </body>
 

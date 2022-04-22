@@ -77,8 +77,11 @@
 
 .body{
     font-family: 'Oswald', sans-serif;
-    min-height: 90vh; /*barra desplazamiento*/
     background-color: var(--color-background-body);
+}
+
+.header{
+    /*background-color: var(--color-background-header);*/
 }
 
 .header-container{
@@ -337,6 +340,7 @@
     background-color: var(--color-background-section-contacto);
     display: flex;
     justify-content: center;
+    align-items: center;
     max-width: var(--container-max-width);
     gap: 1rem;
     border-radius: 0.5rem;
@@ -413,6 +417,7 @@
         flex-direction: column;
         justify-content:flex-start;        
         box-sizing: border-box;
+        align-items: flex-start;
     }
 
     .grid-aside-links { 

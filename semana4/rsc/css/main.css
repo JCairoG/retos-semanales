@@ -243,9 +243,11 @@
   width: 100%;
   padding: 0.75em 0em;
 }
+
 .section-contacto__input:focus {
-  border-width: 3px;
-  border-color: var(--color-box-shadow2);
+  border: dashed;
+  border-width: 1px;
+  background-color: var(--color-box-shadow5);
 }
 
 .section-contacto__nav-acept-button {

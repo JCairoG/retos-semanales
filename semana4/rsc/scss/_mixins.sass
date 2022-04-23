@@ -1,3 +1,12 @@
+@mixin input-text-style()
+  @include text-style ("input-text")
+  outline: none
+  background: none
+  border: none
+  border-bottom-style: none
+  border-bottom: 1px solid var(--color-box-shadow2)
+  width: 100%
+  padding: 0.75em 0em
 
 @mixin container-style ($background, $border-radius: 0.5rem) 
   background: $background

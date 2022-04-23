@@ -2,6 +2,22 @@
 @import 'mixins'
 @import 'keyframes'
  
+input
+  &:invalid
+    border: 2px dashed red
+
+  &:required
+    background-image: linear-gradient(to right, pink, lightgreen)
+
+  &:valid
+    outline: none
+    background: none
+    border: none
+    border-bottom-style: none
+    border-bottom: 1px solid var(--color-box-shadow2)
+    width: 100%
+    padding: 0.75em 0em
+
 .body
   font-family: 'Oswald', sans-serif
   background-color: var(--color-background-body)
@@ -149,14 +165,7 @@
   font-size: 1.5rem
 
 .section-contacto__input
-  @include text-style ("input-text")
-  outline: none
-  background: none
-  border: none
-  border-bottom-style: none
-  border-bottom: 1px solid var(--color-box-shadow2)
-  width: 100%
-  padding: 0.75em 0em
+  @include input-text-style
   
   &:focus
     border-width: 3px

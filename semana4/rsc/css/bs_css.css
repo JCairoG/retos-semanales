@@ -1,0 +1,115 @@
+:root{
+  --color-box-shadow1: #2357ad;
+  --color-box-shadow2: #2982c1;
+  --color-box-shadow3: #29aeca;
+  --color-box-shadow4: #44cbcb;
+  --color-box-shadow5: #d7eaea;
+
+  --color-gradient-from: rgb(4,41,68);
+  --color-gradient-to: rgb(1,92,165);
+
+  --color-secondary-gradient-from: #dcd9d9;
+  --color-secondary-gradient-to: white;
+
+  --color-table-row1: #dcd9d9;
+  --color-table-row2: #E9E9E9;
+
+  --color-text-shadow: #d7eaea;
+  --color-background-body: #eeeeee;
+  --color-background-header: #2982c1;
+  --color-background-section-contacto: #44cbcb;
+  --color-text: white;
+  --color-text-input: #2982c1;
+  --color-primary-highlight: #44cbcb;
+  --container-max-width: 1024px;
+  --padding-section: 1rem 1rem;
+  --font-size-h1: 2rem;
+}
+
+.body {
+  background-color: var(--color-background-body);
+}
+
+.header-image-container {
+  margin: 0;
+  height: 48px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.5s;
+  animation: shining-logo 1.5s linear 0s infinite alternate;
+}
+
+.navbar-custom {
+    background: linear-gradient(var(--color-gradient-from), var(--color-gradient-to));
+    border-radius: 0.5rem;
+}
+
+.header__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-h1);
+  border-radius: 0.5rem;
+  text-align: left;
+  background: linear-gradient(var(--color-gradient-from), var(--color-gradient-to));
+  padding: 0.5rem 0.5rem;
+}
+
+.section-oficinas__title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: calc(var(--font-size-h1) * 0.7);
+  border-radius: 0.5rem;
+  text-align: left;
+  background: linear-gradient(var(--color-gradient-from), var(--color-gradient-to));
+  padding: 0.5rem 0.5rem;
+}
+
+.section-contacto__nav-acept-button {
+  text-align: center;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  color: var(--color-text);
+  border-radius: 0.5rem;
+  background: linear-gradient(var(--color-gradient-from), var(--color-gradient-to));
+  margin: 1rem 0;
+  max-width: 200px;
+}
+
+.section-contacto__nav-acept-button:hover {
+  background: linear-gradient(var(--color-gradient-to), var(--color-gradient-from));
+  box-shadow: 0 0 0 0.0625rem var(--color-gradient-to), 0 0 0 0.125rem var(--color-text);
+}
+
+.section-contacto__input {
+  color: var(--color-text-input);
+  font-size: calc(var(--font-size-h1) * 0.5);
+  text-align: left;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom-style: none;
+  border-bottom: 1px solid var(--color-box-shadow2);
+  width: 100%;
+  padding: 0.25em 0.5em;
+}
+
+.section-contacto__select {
+  color: var(--color-text-input);
+  font-size: calc(var(--font-size-h1) * 0.5);
+  text-align: left;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--color-box-shadow2);
+  width: 100%;
+  padding: 0.25em 0.5em;
+}
+.section-contacto__input:focus {
+  border-width: 3px;
+  border-color: var(--color-box-shadow2);
+}
+
+.bi {
+  font-size: 1.1rem;
+  color: var(--color-box-shadow2);
+}

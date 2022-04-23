@@ -8,10 +8,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./rsc/css/bs_css.css">
+  <link rel="stylesheet" href="./rsc/css/grid.css">
 </head>
 
-<body class="body">
-  <header class="container p-0">
+<body class="body body--grid">
+  <header class="container p-0 header--grid">
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -41,7 +42,7 @@
   
   </header>
 
-  <main>
+  <main class="section-contacto--grid">
     <section class="container mt-3 section-container-background">
       
       <form class="row">
@@ -96,7 +97,7 @@
     </section>
   </main>
   
-  <section class="container mt-3 p-0 section-container-background">
+  <section class="container mt-3 p-0 section-container-background section-oficinas--grid">
     <h2 class="section-oficinas__title">
       <i class="bi bi-building"></i>
       Nuestras Oficinas
@@ -135,7 +136,7 @@
 
   </section>
 
-  <footer class="container text-center text-white navbar-custom mt-4">
+  <footer class="container text-center text-white navbar-custom mt-4 footer--grid">
     <div class="container p-1">
       <section class="mb-4">
         <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
@@ -172,7 +173,7 @@
             </div>
             
             <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
+              <button type="submit" class="btn btn-outline-light mb-4" onclick="do_nothing('subscribe')">
                 Subscribirse
               </button>
             </div>
@@ -186,6 +187,14 @@
         </p>
       </section>
   </footer>
+
+  <aside class="container p-0 aside-links aside-links--grid">
+    <div class="aside-links-container">
+      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mi Cuenta</a>  
+      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mis Productos</a>     
+      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Ayuda</a>     
+    </div>    
+  </aside>
 
   <div class="modal fade" id="modalMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

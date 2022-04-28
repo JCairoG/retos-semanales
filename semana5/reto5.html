@@ -12,6 +12,7 @@
 </head>
 
 <body class="body body--grid">
+
   <header class="container p-0 header--grid">
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
       <div class="container-fluid">
@@ -24,13 +25,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" onclick="do_nothing('abre')">Quienes Somos</a>
+              <a class="nav-link active" aria-current="page" href="#">Quienes Somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="do_nothing('abre')">Nuestros Proyectos</a>
+              <a class="nav-link" href="#">Nuestros Proyectos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="do_nothing('abre')">Nuestros Clientes</a>
+              <a class="nav-link" href="#">Nuestros Clientes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link disabled">Comunidad</a>
@@ -45,54 +46,54 @@
   <main class="section-contacto--grid">
     <section class="container mt-3 section-container-background">
       
-      <form class="row">
+      <form class="row" id="frmContact">
         <h1 class="header__title">
           <i class="bi bi-building"></i>
           Contáctenos
         </h1>  
 
-        <div class="col-md-8">
+        <div class="col-md-8 input-container">
           <i class="bi bi-person-circle"></i>
           <input class="section-contacto__input" type="text" id="raz_soc" placeholder="Razón Social" required>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 input-container">
           <i class="bi bi-card-checklist"></i>
           <input class="section-contacto__input" type="number" id="inputRUC" placeholder="Número de RUC">
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-8 input-container">
           <i class="bi bi-geo-alt"></i>
-          <input type="text" class="section-contacto__input" id="inputAddress" placeholder="Dirección">
+          <input class="section-contacto__input" type="text" id="inputAddress" >
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 input-container">
           <i class="bi bi-geo-alt"></i>
           <select id="inputState" class="section-contacto__select">
-            <option selected>Ciudad</option>
-            <option>Lima</option>
-            <option>Arequipa</option>
-            <option>Chiclayo</option>
-            <option>Tumbes</option>
+            <option value="-1" selected disabled>Ciudad</option>
+            <option value="0">Lima</option>
+            <option value="1">Arequipa</option>
+            <option value="2">Chiclayo</option>
+            <option value="3">Tumbes</option>
           </select>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 input-container">
           <i class="bi bi-telephone"></i>
-          <input type="text" class="section-contacto__input" id="inputPhone" placeholder="Teléfono">
+          <input type="number" class="section-contacto__input" id="inputPhone" placeholder="Teléfono">
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 input-container">
           <i class="bi bi-envelope"></i>
           <input type="email" class="section-contacto__input" id="inputMail" placeholder="Correo Electrónico">
         </div>
         
-        <div class="col-md-12">
+        <div class="col-md-12 input-container">
           <i class="bi bi-file-earmark-person-fill"></i>
           <input type="text" class="section-contacto__input" id="inputName2" placeholder="Nombre de la persona a contactar">
         </div>
         
-        <a href="#" class="section-contacto__nav-acept-button" data-bs-toggle="modal" data-bs-target="#modalMessage">Enviar</a>
+        <a id="buttonSave" class="section-contacto__nav-acept-button">Enviar</a>
       </form>
     </section>
   </main>
@@ -172,7 +173,7 @@
             </div>
             
             <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4" onclick="do_nothing('subscribe')">
+              <button type="submit" class="btn btn-outline-light mb-4">
                 Subscribirse
               </button>
             </div>
@@ -189,36 +190,15 @@
 
   <aside class="container p-0 aside-links aside-links--grid">
     <div class="aside-links-container">
-      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mi Cuenta</a>  
-      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Mis Productos</a>     
-      <a href="#" class="aside-links__nav" onclick="do_nothing('abre')">Ayuda</a>     
+      <a href="#" class="aside-links__nav">Mi Cuenta</a>  
+      <a href="#" class="aside-links__nav">Mis Productos</a>     
+      <a href="#" class="aside-links__nav">Ayuda</a>     
     </div>    
   </aside>
 
-  <div class="modal fade" id="modalMessage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Atención</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ¡Este botón no envia nada!
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <script src="./rsc/js/dialogs.js"></script>
+  <script type="module" src="./rsc/js/validations.js"></script>
+ 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-  <script>
-    function do_nothing(action) {
-      alert ('Lo siento. Este botón no ' + action + ' nada');
-    }
-    
-  </script>
 </body>
 </html>

@@ -17,7 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     else
       dialog.show(`Su correo ${form5Example21.value} a sido registrado`,"Subscripción", Type.INFO);
   }
-  
+
+  let links = document.querySelectorAll(".btn,.aside-links__nav,.nav-link");
+  for (const link of links) {
+    link.addEventListener('click', ()=>dialog.show("No tiene permiso para dejar esta página","",Type.DENIED));
+  }
+
   const formValidation = (e) =>{
     e.preventDefault();
     if (validate()) dialog.show("Los datos han sido registrados satisfactoriamente", gTitle, Type.INFO, Buttons.ACEPT);

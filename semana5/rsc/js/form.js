@@ -38,11 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validate()) dialog.show("Los datos han sido registrados satisfactoriamente", gTitle, Type.INFO, Buttons.ACEPT);
   };
   
-  document.getElementById("buttonSave").addEventListener('click', formValidation);
-  document.getElementById("frmSubscription").addEventListener('submit',submitSuscribe);
-  
   document.oncontextmenu =()=>{
     dialog.show("Todos los derechos reservados","BootCamp FullStack 2022",Type.DENIED)
-    /*return false;*/
+    return false;
   }
+
+  document.getElementById("raz_soc").focus();
+
+  document.getElementById("buttonSave").addEventListener('click', formValidation);
+  document.getElementById("frmSubscription").addEventListener('submit',submitSuscribe);
 });

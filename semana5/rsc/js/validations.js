@@ -35,8 +35,7 @@ export const validate = () => {
       case "text":{
         if (!value) {
           setInvalidStyle (e);
-          dialog.show(msg, gTitle, Type.ERROR);
-          console.log(r);
+          let r = dialog.show(msg, gTitle, Type.ERROR)
           e.focus();
           return false;
         }else{

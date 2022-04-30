@@ -7,6 +7,18 @@ let dlgMessage;
 let dlgButton1;
 let dlgButton2;
 let dlgButton3;
+let typeProps = new Map();    
+
+class TypeProperties{
+  icon;
+  color;
+  title;
+  constructor (icon, color,title){
+    this.icon=icon;
+    this.color=color;
+    this.title=title;
+  }
+}
 
 export class Type{
   static INFO = 0;
@@ -38,14 +50,13 @@ export class Result{
 }
 
 export class TextAlign{
-  static CENTER =0;
-  static LEFT = 1;
-  static RIGHT = 2;
+  static CENTER = "center";
+  static LEFT = "left";
+  static RIGHT = "right";
 }
 
 class Dialog{
   constructor(){
-
     const link = document.createElement('link'); 
     link.rel = 'stylesheet'; 
     link.href = './rsc/css/dialogs.css'; 
@@ -82,47 +93,18 @@ class Dialog{
     dlgButton1.addEventListener('click', ()=>{});
     dlgButton2.addEventListener('click', ()=>{});
     dlgButton3.addEventListener('click', ()=>{});
+
+    typeProps.set(Type.INFO, new TypeProperties("./rsc/img/dlg_info.png","#3399FF","Información"));
+    typeProps.set(Type.ERROR, new TypeProperties("./rsc/img/dlg_error.png","#FF0000","Error"));
+    typeProps.set(Type.QUESTION, new TypeProperties("./rsc/img/dlg_question.png","#3399FF","Pregunta"));
+    typeProps.set(Type.DENIED, new TypeProperties("./rsc/img/dlg_denied.png","#FF0000","Denegado"));
+    typeProps.set(Type.ALERT, new TypeProperties("./rsc/img/dlg_alert.png","#FFFF00","Alerta"));
   }  
 
   async show(message="", title="", type = Type.INFO, buttons = Buttons.ACEPT, textAlign = TextAlign.CENTER){
-    let dlgIcon="";
-    let dlgColor="";
-    let dlgAlign="";
     let dlgBtnTitle1 ="";
     let dlgBtnTitle2 ="";
     let dlgBtnTitle3 ="";
-    
-    switch (type){
-      case Type.INFO:
-        dlgIcon ="./rsc/img/dlg_info.png";
-        dlgColor = "#3399FF";
-        if (title == "") title = "Información";
-        break;
-
-      case Type.ERROR:
-        dlgIcon ="./rsc/img/dlg_error.png";
-        dlgColor = "#FF0000";
-        if (title == "") title = "Error";
-        break;
-      
-      case Type.QUESTION:
-        dlgIcon="./rsc/img/dlg_question.png";
-        dlgColor = "#3399FF";
-        if (title == "") title = "Pregunta";
-        break;
-
-      case Type.DENIED:
-        dlgIcon="./rsc/img/dlg_denied.png";
-        dlgColor = "#FF0000";
-        if (title == "") title = "Denegado";
-        break;
-
-      case Type.ALERT:
-        dlgIcon="./rsc/img/dlg_alert.png";
-        dlgColor = "#FFFF00";
-        if (title == "") title = "Alerta";
-        break;
-    }
     
     switch (buttons){
       case Buttons.ACEPT:
@@ -189,40 +171,33 @@ class Dialog{
           break;
     }
     
-    switch (textAlign){
-      case TextAlign.CENTER:
-        dlgAlign = "center";
-        break;
-        
-      case TextAlign.LEFT:
-        dlgAlign = "left";
-        break;
+    let tProps = typeProps.get(type);
 
-      case TextAlign.RIGHT:
-        dlgAlign = "right";
-        break;
-    }
-
-    dlg.style.backgroundColor = dlgColor;
-    dlgTitle.innerHTML = title;
-    dlgImage.src = dlgIcon;
+    dlg.style.backgroundColor = tProps.color;
+    dlgTitle.innerHTML = (title == "" ? tProps.title: title);
+    dlgImage.src = tProps.icon;
     dlgMessage.innerHTML = message;
-    dlgMessage.style.textAlign = dlgAlign;
+    dlgMessage.style.textAlign = textAlign;
+    
+    console.log(textAlign);
 
     if (dlgBtnTitle1 != "") {
       dlgButton1.innerHTML = dlgBtnTitle1;  
       dlgButton1.style.display = "initial";
-    }
+    }else 
+      dlgButton1.style.display = "none"
 
     if (dlgBtnTitle2 != "") {
       dlgButton2.innerHTML = dlgBtnTitle2;  
       dlgButton2.style.display = "initial";
-    }
+    }else 
+      dlgButton2.style.display = "none"
       
     if (dlgBtnTitle3 != ""){
       dlgButton3.innerHTML = dlgBtnTitle3;
       dlgButton3.style.display = "initial";
-    }
+    }else 
+      dlgButton3.style.display = "none"
 
     dlgOverlay.style.display = "flex";
     

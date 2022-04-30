@@ -93,7 +93,7 @@
           <input type="text" class="section-contacto__input" id="inputName2" placeholder="Nombre de la persona a contactar">
         </div>
         
-        <a id="buttonSave" class="section-contacto__nav-acept-button">Enviar</a>
+        <input type="button" id="buttonSave" class="section-contacto__nav-acept-button" value="Enviar"></input>
       </form>
     </section>
   </main>
@@ -160,7 +160,7 @@
       </section>
       
       <section class="">
-        <form action="">
+        <form id="frmSubscription" action="">
           <div class="row justify-content-center">
             <div class="col-auto">
               <i class="bi bi-envelope"></i>
@@ -173,18 +173,14 @@
             </div>
             
             <div class="col-auto">
-              <button type="submit" class="btn btn-outline-light mb-4">
-                Subscribirse
-              </button>
+              <button type="submit" class="btn btn-outline-light mb-4">Subscribirse</button>
             </div>
           </div>
         </form>
       </section>
 
       <section>
-        <p>
-          Todos los derechos reservados - 2022
-        </p>
+        <p>Todos los derechos reservados - 2022</p>
       </section>
   </footer>
 
@@ -195,10 +191,9 @@
       <a href="#" class="aside-links__nav">Ayuda</a>     
     </div>    
   </aside>
-
-  <script src="./rsc/js/dialogs.js"></script>
-  <script type="module" src="./rsc/js/validations.js"></script>
- 
+  
+  <script type="module" src="./rsc/js/form.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

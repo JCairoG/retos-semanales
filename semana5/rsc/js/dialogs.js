@@ -1,5 +1,14 @@
 'strict mode';
-class DialogType{
+let dlgOverlay;
+let dlg;
+let dlgTitle;
+let dlgImage;
+let dlgMessage;
+let dlgButton1;
+let dlgButton2;
+let dlgButton3;
+
+export class Type{
   static INFO = 0;
   static ERROR = 1;
   static QUESTION = 2;
@@ -7,7 +16,7 @@ class DialogType{
   static ALERT = 4;
 }
 
-class DialogButtons{
+export class Buttons{
   static ACEPT = 0;
   static ACEPTCANCEL = 1;
   static ACEPTCANCEL_DEFAULT_CANCEL= 2;
@@ -22,46 +31,45 @@ class DialogButtons{
   static NO_BUTTONS = 11;
 }
 
-class DialogResult{
+export class Result{
   static ACEPT_YES = 0;
   static CANCEL_NO = 1;
   static RETRY = 2;
 }
 
-class DialogTextAlign{
+export class TextAlign{
   static CENTER =0;
   static LEFT = 1;
   static RIGHT = 2;
 }
 
-var dlgOverlay;
-var dlg;
-var dlgTitle;
-var dlgImage;
-var dlgMessage;
-var dlgButton1;
-var dlgButton2;
-var dlgButton3;
-
-class DialogBox{
+class Dialog{
   constructor(){
-    let htmlDlg='<div id="dialog-overlay" class="dialog-overlay">'+
-                   '<div id="dialog" class="dialog">'+
-                   '<div class="dialog__header">'+
-                   '<h3 id="dialog__header-text" class="dialog__header-text"></h3>'+
-                   '</div>'+
-                   '<div class="dialog__body">'+
-                   '<image id="dialog__body-image" class="dialog__body-image"/>'+
-                   '<h3 id="dialog__body-text" class="dialog__body-text"></h3>'+
-                   '</div>'+
-                   '<div id="dialog__footer" class="dialog__footer">'+
-                   '<button id="dialog_button1" class="dialog__footer-button"></button>'+
-                   '<button id="dialog_button2" class="dialog__footer-button"></button>'+
-                   '<button id="dialog_button3" class="dialog__footer-button"></button>'+
-                   '</div></div></div>';
+
+    const link = document.createElement('link'); 
+    link.rel = 'stylesheet'; 
+    link.href = './rsc/css/dialogs.css'; 
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+    let htmlDlg=`<div id="dialog-overlay" class="dialog-overlay">
+                 <div id="dialog" class="dialog">
+                  <div class="dialog__header">
+                    <h3 id="dialog__header-text" class="dialog__header-text"></h3>
+                  </div>
+                  <div class="dialog__body">
+                    <image id="dialog__body-image" class="dialog__body-image"/>
+                    <h3 id="dialog__body-text" class="dialog__body-text"></h3>
+                  </div>
+                  <div id="dialog__footer" class="dialog__footer">
+                    <button id="dialog_button1" class="dialog__footer-button"></button>
+                    <button id="dialog_button2" class="dialog__footer-button"></button>
+                    <button id="dialog_button3" class="dialog__footer-button"></button>
+                  </div>
+                 </div>
+                </div>`;
 
     document.getElementsByTagName('body')[0].innerHTML+=htmlDlg;
-
+    
     dlgOverlay = document.getElementById('dialog-overlay');
     dlg = document.getElementById('dialog');
     dlgTitle = document.getElementById('dialog__header-text');
@@ -70,42 +78,46 @@ class DialogBox{
     dlgButton1 = document.getElementById('dialog_button1');
     dlgButton2 = document.getElementById('dialog_button2');
     dlgButton3 = document.getElementById('dialog_button3');
+
+    dlgButton1.addEventListener('click', ()=>{});
+    dlgButton2.addEventListener('click', ()=>{});
+    dlgButton3.addEventListener('click', ()=>{});
   }  
-  
-  show (message="", title="", type = DialogType.INFO, buttons = DialogButtons.NO_BUTTONS, textAlign = DialogTextAlign.CENTER) { 
+
+  async show(message="", title="", type = Type.INFO, buttons = Buttons.ACEPT, textAlign = TextAlign.CENTER){
     let dlgIcon="";
     let dlgColor="";
     let dlgAlign="";
     let dlgBtnTitle1 ="";
     let dlgBtnTitle2 ="";
     let dlgBtnTitle3 ="";
-
+    
     switch (type){
-      case DialogType.INFO:
+      case Type.INFO:
         dlgIcon ="./rsc/img/dlg_info.png";
         dlgColor = "#3399FF";
         if (title == "") title = "Información";
         break;
 
-      case DialogType.ERROR:
+      case Type.ERROR:
         dlgIcon ="./rsc/img/dlg_error.png";
         dlgColor = "#FF0000";
         if (title == "") title = "Error";
         break;
       
-      case DialogType.QUESTION:
+      case Type.QUESTION:
         dlgIcon="./rsc/img/dlg_question.png";
         dlgColor = "#3399FF";
         if (title == "") title = "Pregunta";
         break;
 
-      case DialogType.DENIED:
+      case Type.DENIED:
         dlgIcon="./rsc/img/dlg_denied.png";
         dlgColor = "#FF0000";
         if (title == "") title = "Denegado";
         break;
 
-      case DialogType.ALERT:
+      case Type.ALERT:
         dlgIcon="./rsc/img/dlg_alert.png";
         dlgColor = "#FFFF00";
         if (title == "") title = "Alerta";
@@ -113,80 +125,80 @@ class DialogBox{
     }
     
     switch (buttons){
-      case DialogButtons.ACEPT:
+      case Buttons.ACEPT:
         dlgBtnTitle1 ="Aceptar";
         break;
 
-      case DialogButtons.ACEPTCANCEL: 
+      case Buttons.ACEPTCANCEL: 
         dlgBtnTitle1 ="Aceptar";
         dlgBtnTitle2 ="Cancelar";
         break;
     
-      case DialogButtons.ACEPTCANCEL_DEFAULT_CANCEL:
+      case Buttons.ACEPTCANCEL_DEFAULT_CANCEL:
         dlgBtnTitle1 ="Aceptar";
         dlgBtnTitle2 ="Cancelar";
         break;
       
-      case DialogButtons.YESNO:
+      case Buttons.YESNO:
         dlgBtnTitle1 ="Si";
         dlgBtnTitle2 ="No";
         break;
 
-      case DialogButtons.YESNO_DEFAULT_NO:
+      case Buttons.YESNO_DEFAULT_NO:
         dlgBtnTitle1 ="Si";
         dlgBtnTitle2 ="No";
         break;
 
-      case DialogButtons.ACEPTCANCELRETRY:
+      case Buttons.ACEPTCANCELRETRY:
         dlgBtnTitle1 ="Aceptar";
         dlgBtnTitle2 ="Cancelar";
         dlgBtnTitle3 ="Reintentar";
         break;
       
-      case DialogButtons.ACEPTCANCELRETRY_DEFAULT_CANCEL:
+      case Buttons.ACEPTCANCELRETRY_DEFAULT_CANCEL:
         dlgBtnTitle1 ="Aceptar";
         dlgBtnTitle2 ="Cancelar";
         dlgBtnTitle3 ="Reintentar";
         break;
       
-      case DialogButtons.ACEPTCANCELRETRY_DEFAULT_RETRY:
+      case Buttons.ACEPTCANCELRETRY_DEFAULT_RETRY:
         dlgBtnTitle1 ="Aceptar";
         dlgBtnTitle2 ="Cancelar";
         dlgBtnTitle3 ="Reintentar";
         break;
       
-      case DialogButtons.YESNORETRY:
+      case Buttons.YESNORETRY:
         dlgBtnTitle1 ="Si";
         dlgBtnTitle2 ="No";
         dlgBtnTitle3 ="Reintentar";
         break;
       
-      case DialogButtons.YESNORETRY_DEFAULT_NO:
+      case Buttons.YESNORETRY_DEFAULT_NO:
         dlgBtnTitle1 ="Si";
         dlgBtnTitle2 ="No";
         dlgBtnTitle3 ="Reintentar";
         break;
       
-      case DialogButtons.YESNORETRY_DEFAULT_RETRY:
+      case Buttons.YESNORETRY_DEFAULT_RETRY:
         dlgBtnTitle1 ="Si";
         dlgBtnTitle2 ="No";
         dlgBtnTitle3 ="Reintentar";
         break;
 
-      case DialogButtons.NO_BUTTONS:
+      case Buttons.NO_BUTTONS:
           break;
     }
     
     switch (textAlign){
-      case DialogTextAlign.CENTER:
+      case TextAlign.CENTER:
         dlgAlign = "center";
         break;
         
-      case DialogTextAlign.LEFT:
+      case TextAlign.LEFT:
         dlgAlign = "left";
         break;
 
-      case DialogTextAlign.RIGHT:
+      case TextAlign.RIGHT:
         dlgAlign = "right";
         break;
     }
@@ -196,8 +208,6 @@ class DialogBox{
     dlgImage.src = dlgIcon;
     dlgMessage.innerHTML = message;
     dlgMessage.style.textAlign = dlgAlign;
-
-    dlgButton1.innerHTML = dlgBtnTitle1;
 
     if (dlgBtnTitle1 != "") {
       dlgButton1.innerHTML = dlgBtnTitle1;  
@@ -215,20 +225,21 @@ class DialogBox{
     }
 
     dlgOverlay.style.display = "flex";
-
-    if (buttons == DialogButtons.NO_BUTTONS){
-      window.setTimeout(this.result, 1800, DialogResult.ACEPT_YES);
-    }
-  
-  }
-
-  result = (r) =>{
+    
+    const btnClicked = await (async () => {return new Promise(
+      (resolve) => {
+        if (buttons == Buttons.NO_BUTTONS){
+          setTimeout(() => resolve(Result.ACEPT_YES), 1500);
+        } else {
+          dlgButton1.onclick = () => resolve(Result.ACEPT_YES);
+          dlgButton2.onclick = () => resolve(Result.CANCEL_NO);
+          dlgButton3.onclick = () => resolve(Result.RETRY);
+        }
+    })})();
+    
     dlgOverlay.style.display = "none";
+    return btnClicked;
   }
 }
 
-const msgBox = new DialogBox();
-
-dlgButton1.addEventListener('click', () => msgBox.result(DialogResult.ACEPT_YES));
-dlgButton2.addEventListener('click', () => msgBox.result(DialogResult.CANCEL_NO));
-dlgButton3.addEventListener('click', () => msgBox.result(DialogResult.RETRY));
+export const dialog = new Dialog();

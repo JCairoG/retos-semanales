@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (validate()) dialog.show("Los datos han sido registrados satisfactoriamente", gTitle, Type.INFO, Buttons.ACEPT);
   };
   
-  buttonSave.addEventListener('click', formValidation);
-  frmSubscription.addEventListener('submit',submitSuscribe);
-
+  document.getElementById("buttonSave").addEventListener('click', formValidation);
+  document.getElementById("frmSubscription").addEventListener('submit',submitSuscribe);
 });

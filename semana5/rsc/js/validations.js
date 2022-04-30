@@ -35,7 +35,7 @@ export const validate = () => {
       case "text":{
         if (!value) {
           setInvalidStyle (e);
-          let r = dialog.show(msg, gTitle, Type.ERROR)
+          dialog.show(msg, gTitle, Type.ERROR, Buttons.NO_BUTTONS)
           e.focus();
           return false;
         }else{
@@ -48,7 +48,7 @@ export const validate = () => {
         const validMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);       
         if (!validMail) {
           setInvalidStyle (e);
-          dialog.show(msg, gTitle, Type.ERROR);
+          dialog.show(msg, gTitle, Type.ERROR, Buttons.NO_BUTTONS);
           e.focus();
           return false;
         }else{
@@ -60,7 +60,7 @@ export const validate = () => {
       case "number":{
         if (!value || isNaN(value)) {
           setInvalidStyle (e);
-          dialog.show(msg, gTitle, Type.ERROR);
+          dialog.show(msg, gTitle, Type.ERROR, Buttons.NO_BUTTONS);
           e.focus();
           return false;
         }else{
@@ -72,7 +72,7 @@ export const validate = () => {
       case "select-one":{
         if (!value || value=="-1"){
           setInvalidStyle (e);
-          dialog.show("Seleccione una opción de la lista", gTitle, Type.ERROR);
+          dialog.show("Seleccione una opción de la lista", gTitle, Type.ERROR, Buttons.NO_BUTTONS);
           e.focus();
           return false;
         }

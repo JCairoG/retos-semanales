@@ -97,6 +97,8 @@ class Dialog{
     let dlgBtnTitle2 ="";
     let dlgBtnTitle3 ="";
     
+    console.log(buttons);
+    
     switch (buttons){
       case Buttons.ACEPT:
         dlgBtnTitle1 ="Aceptar";

@@ -7,18 +7,7 @@ let dlgMessage;
 let dlgButton1;
 let dlgButton2;
 let dlgButton3;
-let typeProps = new Map();    
-
-class TypeProperties{
-  icon;
-  color;
-  title;
-  constructor (icon, color,title){
-    this.icon=icon;
-    this.color=color;
-    this.title=title;
-  }
-}
+let typeProps = [];    
 
 export class Type{
   static INFO = 0;
@@ -94,11 +83,13 @@ class Dialog{
     dlgButton2.addEventListener('click', ()=>{});
     dlgButton3.addEventListener('click', ()=>{});
 
-    typeProps.set(Type.INFO, new TypeProperties("./rsc/img/dlg_info.png","#3399FF","Información"));
-    typeProps.set(Type.ERROR, new TypeProperties("./rsc/img/dlg_error.png","#FF0000","Error"));
-    typeProps.set(Type.QUESTION, new TypeProperties("./rsc/img/dlg_question.png","#3399FF","Pregunta"));
-    typeProps.set(Type.DENIED, new TypeProperties("./rsc/img/dlg_denied.png","#FF0000","Denegado"));
-    typeProps.set(Type.ALERT, new TypeProperties("./rsc/img/dlg_alert.png","#FFFF00","Alerta"));
+    typeProps = [
+      {type: Type.INFO,     icon: "./rsc/img/dlg_info.png",    color: "#3399FF", title: "Información"},
+      {type: Type.ERROR,    icon: "./rsc/img/dlg_error.png",   color: "#FF0000", title: "Error"},
+      {type: Type.QUESTION, icon: "./rsc/img/dlg_question.png",color: "#3399FF", title: "Pregunta"},
+      {type: Type.DENIED,   icon: "./rsc/img/dlg_denied.png",  color: "#FF0000", title: "Denegado"},
+      {type: Type.ALERT,    icon: "./rsc/img/dlg_alert.png",   color: "#FFFF00", title: "Alerta"}
+    ];
   }  
 
   async show(message="", title="", type = Type.INFO, buttons = Buttons.ACEPT, textAlign = TextAlign.CENTER){
@@ -171,15 +162,11 @@ class Dialog{
           break;
     }
     
-    let tProps = typeProps.get(type);
-
-    dlg.style.backgroundColor = tProps.color;
-    dlgTitle.innerHTML = (title == "" ? tProps.title: title);
-    dlgImage.src = tProps.icon;
+    dlg.style.backgroundColor = typeProps[type].color;
+    dlgTitle.innerHTML = (title == "" ? typeProps[type].title: title);
+    dlgImage.src = typeProps[type].icon;
     dlgMessage.innerHTML = message;
     dlgMessage.style.textAlign = textAlign;
-    
-    console.log(textAlign);
 
     if (dlgBtnTitle1 != "") {
       dlgButton1.innerHTML = dlgBtnTitle1;  

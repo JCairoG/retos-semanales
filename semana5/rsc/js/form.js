@@ -40,4 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById("buttonSave").addEventListener('click', formValidation);
   document.getElementById("frmSubscription").addEventListener('submit',submitSuscribe);
+  
+  document.oncontextmenu =()=>{
+    dialog.show("Todos los derechos reservados","BootCamp FullStack 2022",Type.DENIED)
+    /*return false;*/
+  }
 });

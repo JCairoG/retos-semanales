@@ -1,5 +1,5 @@
 'strict mode';
-import {dialog, Type, Buttons, TextAlign} from './dialogs.js';
+import {dialog, Type, Buttons} from './dialogs.js';
 
 const gTitle = document.title;
 var gInputs = new Array();

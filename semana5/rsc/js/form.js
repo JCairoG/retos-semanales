@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', ()=>dialog.show("No tiene permiso para dejar esta página","",Type.DENIED));
   }
 
+  const INPUTS = document.forms[0].querySelectorAll("input, select");
+  
+  for (const item of INPUTS) {
+    if (!item.disabled){
+      document.getElementById(item.id).addEventListener("keyup", (e) =>{
+        if (e.code=='Enter') {
+          document.getElementById(item.id).dispatchEvent(new KeyboardEvent('keydown', {'code':'Tab'}))
+        }})
+   } 
+}
+
   const formValidation = (e) =>{
     e.preventDefault();
     if (validate()) dialog.show("Los datos han sido registrados satisfactoriamente", gTitle, Type.INFO, Buttons.ACEPT);
@@ -40,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   document.oncontextmenu =()=>{
     dialog.show("Todos los derechos reservados","BootCamp FullStack 2022",Type.DENIED)
-    return false;
+    /*return false;*/
   }
 
   document.getElementById("raz_soc").focus();

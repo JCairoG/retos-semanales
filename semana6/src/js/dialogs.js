@@ -8,8 +8,9 @@ let dlgButton1;
 let dlgButton2;
 let dlgButton3;
 let typeProps = [];    
+let idTimer = 0;
 
-export const Type = Object.freeze({
+export const DialogType = Object.freeze({
   INFO: 0,
   ERROR: 1,
   QUESTION: 2,
@@ -17,7 +18,7 @@ export const Type = Object.freeze({
   ALERT: 4
 })
 
-export const Buttons = Object.freeze({
+export const DialogButtons = Object.freeze({
   ACEPT: 0,
   ACEPTCANCEL: 1,
   ACEPTCANCEL_DEFAULT_CANCEL: 2,
@@ -32,13 +33,13 @@ export const Buttons = Object.freeze({
   NO_BUTTONS: 11
 })
 
-export const Result = Object.freeze({
+export const DialogResult = Object.freeze({
   ACEPT_YES: 0,
   CANCEL_NO: 1,
   RETRY: 2
 })
 
-export const TextAlign = Object.freeze({
+export const DialogTextAlign = Object.freeze({
   CENTER: "center",
   LEFT: "left",
   RIGHT: "right",
@@ -48,7 +49,7 @@ class Dialog{
   constructor(){
     const link = document.createElement('link'); 
     link.rel = 'stylesheet'; 
-    link.href = './rsc/css/dialogs.css'; 
+    link.href = './src/css/dialogs.css'; 
     document.getElementsByTagName('head')[0].appendChild(link);
 
     let htmlDlg=`<div id="dialog-overlay" class="dialog-overlay">
@@ -80,94 +81,96 @@ class Dialog{
     dlgButton3 = document.getElementById('dialog_button3');
 
     typeProps = [
-      {type: Type.INFO,     icon: "./rsc/img/dlg_info.png",    color: "#3399FF", title: "Información"},
-      {type: Type.ERROR,    icon: "./rsc/img/dlg_error.png",   color: "#FF0000", title: "Error"},
-      {type: Type.QUESTION, icon: "./rsc/img/dlg_question.png",color: "#3399FF", title: "Pregunta"},
-      {type: Type.DENIED,   icon: "./rsc/img/dlg_denied.png",  color: "#FF0000", title: "Denegado"},
-      {type: Type.ALERT,    icon: "./rsc/img/dlg_alert.png",   color: "#FFFF00", title: "Alerta"}
+      {type: DialogType.INFO,     icon: "./src/img/dlg_info.png",    color: "#3399FF", defaultTitle: "Información"},
+      {type: DialogType.ERROR,    icon: "./src/img/dlg_error.png",   color: "#FF0000", defaultTitle: "Error"},
+      {type: DialogType.QUESTION, icon: "./src/img/dlg_question.png",color: "#3399FF", defaultTitle: "Pregunta"},
+      {type: DialogType.DENIED,   icon: "./src/img/dlg_denied.png",  color: "#FF0000", defaultTitle: "Denegado"},
+      {type: DialogType.ALERT,    icon: "./src/img/dlg_alert.png",   color: "#FFFF00", defaultTitle: "Alerta"}
     ];
 
   }  
 
-  async show(message="", title="", type = Type.INFO, buttons = Buttons.ACEPT, textAlign = TextAlign.CENTER){
+  async show(message="", title="", type = DialogType.INFO, buttons = DialogButtons.ACEPT, textAlign = DialogTextAlign.CENTER){
     let btnText ="";
     let btnText2 ="";
     let btnText3 ="";
     let btnFocus = 1;
-    
+
     switch (buttons){
-      case Buttons.ACEPT:
+      case DialogButtons.ACEPT:
         btnText ="Aceptar";
         break;
 
-      case Buttons.ACEPTCANCEL: 
+      case DialogButtons.ACEPTCANCEL: 
         btnText ="Aceptar";
         btnText2 ="Cancelar";
         break;
     
-      case Buttons.ACEPTCANCEL_DEFAULT_CANCEL:
+      case DialogButtons.ACEPTCANCEL_DEFAULT_CANCEL:
         btnText ="Aceptar";
         btnText2 ="Cancelar";
         btnFocus = 2;
         break;
       
-      case Buttons.YESNO:
+      case DialogButtons.YESNO:
         btnText ="Si";
         btnText2 ="No";
         break;
 
-      case Buttons.YESNO_DEFAULT_NO:
+      case DialogButtons.YESNO_DEFAULT_NO:
         btnText ="Si";
         btnText2 ="No";
         btnFocus = 2;
         break;
 
-      case Buttons.ACEPTCANCELRETRY:
+      case DialogButtons.ACEPTCANCELRETRY:
         btnText ="Aceptar";
         btnText2 ="Cancelar";
         btnText3 ="Reintentar";
         break;
       
-      case Buttons.ACEPTCANCELRETRY_DEFAULT_CANCEL:
+      case DialogButtons.ACEPTCANCELRETRY_DEFAULT_CANCEL:
         btnText ="Aceptar";
         btnText2 ="Cancelar";
         btnText3 ="Reintentar";
         btnFocus = 2;
         break;
       
-      case Buttons.ACEPTCANCELRETRY_DEFAULT_RETRY:
+      case DialogButtons.ACEPTCANCELRETRY_DEFAULT_RETRY:
         btnText ="Aceptar";
         btnText2 ="Cancelar";
         btnText3 ="Reintentar";                        
         btnFocus = 3;
         break;
       
-      case Buttons.YESNORETRY:
+      case DialogButtons.YESNORETRY:
         btnText ="Si";
         btnText2 ="No";
         btnText3 ="Reintentar";
         break;
       
-      case Buttons.YESNORETRY_DEFAULT_NO:
+      case DialogButtons.YESNORETRY_DEFAULT_NO:
         btnText ="Si";
         btnText2 ="No";
         btnText3 ="Reintentar";
         btnFocus = 2;
         break;
       
-      case Buttons.YESNORETRY_DEFAULT_RETRY:
+      case DialogButtons.YESNORETRY_DEFAULT_RETRY:
         btnText ="Si";
         btnText2 ="No";
         btnText3 ="Reintentar";
         btnFocus = 3;
         break;
 
-      case Buttons.NO_BUTTONS:
+      case DialogButtons.NO_BUTTONS:
           break;
     }
     
+    if (title == undefined || title ==="") title = typeProps[type].defaultTitle;
+    
     dlg.style.backgroundColor = typeProps[type].color;
-    dlgTitle.innerHTML = (title == "" ? typeProps[type].defaultTitle: title);
+    dlgTitle.innerHTML = title;
     dlgImage.src = typeProps[type].icon;
     dlgMessage.innerHTML = message;
     dlgMessage.style.textAlign = textAlign;
@@ -186,33 +189,51 @@ class Dialog{
       dlgButton3.innerHTML = btnText3;
       dlgButton3.style.display = "initial";
     }
-
+    
     dlgOverlay.style.display = "flex";
 
-    if (btnFocus === 1)
+    if (btnFocus === 1){
+      dlgButton1.classList.toggle("dialog__footer-button--default");
       dlgButton1.focus();
-    else if(btnFocus === 2)
+    }else if(btnFocus === 2){
+      dlgButton2.classList.toggle("dialog__footer-button--default");
       dlgButton2.focus();
-    else if(btnFocus === 3)
+    }else if(btnFocus === 3){
+      dlgButton3.classList.toggle("dialog__footer-button--default");
       dlgButton3.focus();
-
-    const dlgResult = await (async () => {return new Promise(
-      (resolve) => {
-        if (buttons == Buttons.NO_BUTTONS){
-          setTimeout(() => resolve(Result.ACEPT_YES), 1500);
-        } else {
-          dlgButton1.onclick = () => resolve(Result.ACEPT_YES);
-          dlgButton2.onclick = () => resolve(Result.CANCEL_NO);
-          dlgButton3.onclick = () => resolve(Result.RETRY);
-        }
-    })})();
+    }
+      
+    clearTimeout(idTimer);
     
-    dlgOverlay.style.display = "none";
-    dlgButton1.style.display = "none"
-    dlgButton2.style.display = "none"
-    dlgButton3.style.display = "none"
+    idTimer = setTimeout(() =>{
+      dlg.classList.toggle("dialog--visible"), 1000
+    });
 
-    return dlgResult;
+    return await (async () => {return new Promise(
+      (resolve) => {
+        if (buttons == DialogButtons.NO_BUTTONS){
+          setTimeout(() => resolve(DialogResult.ACEPT_YES), 1500);
+        } else {
+          dlgButton1.onclick = () => resolve(DialogResult.ACEPT_YES);
+          dlgButton2.onclick = () => resolve(DialogResult.CANCEL_NO);
+          dlgButton3.onclick = () => resolve(DialogResult.RETRY);
+        }
+      })})().then((result) => {
+        dlgOverlay.style.display = "none";
+        dlgButton1.style.display = "none"
+        dlgButton2.style.display = "none"
+        dlgButton3.style.display = "none"
+        dlg.classList.toggle("dialog--visible")
+
+        if (btnFocus === 1)
+          dlgButton1.classList.toggle("dialog__footer-button--default");
+        else if(btnFocus === 2)
+          dlgButton2.classList.toggle("dialog__footer-button--default");
+        else if(btnFocus === 3)
+          dlgButton3.classList.toggle("dialog__footer-button--default");
+
+        return result;
+      });
   }
 }
 

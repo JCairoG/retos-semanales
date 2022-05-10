@@ -1,5 +1,6 @@
 'use strict'
 import {dataTables} from './data.js';
+import {ButtonType} from './buttons.js';
 
 let GRID_COLLECTION=[];
 
@@ -7,6 +8,10 @@ class DataGridCollection{
   constructor (){
     document.addEventListener("dataChanged", (e) =>{
       this.fill(e.detail.dataIndex);
+    });
+
+    document.addEventListener("buttonClick", (e) =>{
+      toggleState(e.detail.dataIndex, e.detail.buttonType);
     });
   }
 
@@ -50,9 +55,10 @@ class DataGridCollection{
     const td = e.target;
     const rowIndex = td.parentElement.rowIndex;
     if (rowIndex===0) return;
-    
     try{
       const grid = td.parentElement.parentElement.parentElement;
+      if (grid.classList.contains("--disabled")) return;
+
       const idSel =  grid.rows[rowIndex].cells[0].innerHTML;
       const dataIndex = grid.id.split("_")[0];
       if (idSel != "") dataTables.find(dataIndex,idSel);
@@ -69,6 +75,25 @@ const getGrids= (dataIndex) => {
   return GRID_COLLECTION.filter(item =>
     item.dataIndex === dataIndex
   );
+}
+
+const toggleState= (dataIndex, buttonType) => {
+  if (isNaN(dataIndex)) return;
+
+  switch (buttonType){
+    case ButtonType.ADD: 
+    case ButtonType.EDIT: 
+    case ButtonType.CANCEL: 
+    case ButtonType.ADD_CHILD: 
+    case ButtonType.EDIT_CHILD:
+    case ButtonType.CANCEL_CHILD: 
+      console.log('toggle state grids', buttonType);
+      GRID_COLLECTION.forEach(item => {
+        document.getElementById(item.id).classList.toggle("--disabled");
+      });      
+    break;
+  }
+
 }
 
 export const dataGrid = new DataGridCollection();

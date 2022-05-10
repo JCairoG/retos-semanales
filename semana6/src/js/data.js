@@ -107,6 +107,9 @@ class DataTableCollection{
       if (Object.values(data[dataIndex][i])[0].toString() === id){
         data[dataIndex][i] = record;
         curRecord[dataIndex] = record;
+
+        localStorage.setItem('CRUD', JSON.stringify(data));
+
         break;
       }
     }
@@ -127,6 +130,9 @@ class DataTableCollection{
 
     curRecord[dataIndex] = undefined;
     raiseEvent ("dataChanged", dataIndex);
+
+    localStorage.setItem('CRUD', JSON.stringify(data));
+
     return true;
   }
   
@@ -142,6 +148,8 @@ class DataTableCollection{
     
     raiseEvent ("dataCursorMoved", dataIndex);
   
+    if (dataIndex !=0) return;
+
     /*child tables filtering*/
     data[1] = d1.filter(item =>{
       return item[idName].toString() === id
@@ -156,8 +164,16 @@ class DataTableCollection{
   }
   
   openTables = (dataIndex) =>{
-    data.push (d0);
+    let localData = JSON.parse(localStorage.getItem('CRUD'));
+
+    if (localData){
+      data = localData;
+    }else{
+      data.push(d0);
+      localStorage.setItem('CRUD', JSON.stringify(data));
+    }      
     raiseEvent ("dataChanged", 0);
+
   }
   
   getTableCount = () =>{

@@ -112,13 +112,10 @@ const onClick = (e) => {
 
   switch (info.type){
     case ButtonType.ADD:
+      raiseEvent ("buttonClick", dataIndex, info.type);
       actionAdd = 1;
       toggleState(dataIndex);
       inputFields.clean(dataIndex);
-      
-      /*fake id*/
-      document.getElementById("0_idProd").value = Math.floor(Math.random()*1000);
-
       break;
 
     case ButtonType.EDIT:
@@ -126,6 +123,7 @@ const onClick = (e) => {
         dialog.show("No hay ningun registro seleccionado para modificar","",DialogType.ALERT);
         return;
       }
+      raiseEvent ("buttonClick", dataIndex, info.type);
       actionAdd = 0;
       toggleState(dataIndex);
       break;
@@ -145,6 +143,7 @@ const onClick = (e) => {
           return;
         }
       }
+      raiseEvent ("buttonClick", dataIndex, info.type);
       toggleState(dataIndex);
       break;
   
@@ -159,21 +158,27 @@ const onClick = (e) => {
         if (r === DialogResult.CANCEL_NO) return;
         if (!dataTables.delete(dataIndex)) dialog.show("No se puedo eliminar el registro","",DialogType.ERROR);
       })
+      
+      raiseEvent ("buttonClick", dataIndex, info.type);
       break;
 
     case ButtonType.CANCEL:
+      raiseEvent ("buttonClick", dataIndex, info.type);
       inputFields.fill(dataIndex);
       toggleState(dataIndex);
       break;
 
     case ButtonType.ADD_CHILD:
       if (!dataTables.getCurrentRecord(0)) return;
+      raiseEvent ("buttonClick", dataIndex, info.type);
+
       inputFields.clean(dataIndex);
       toggleState(dataIndex);
       break;
 
     case ButtonType.SAVE_CHILD:
       toggleState(dataIndex);
+      raiseEvent ("buttonClick", dataIndex, info.type);
       break;
   
     case ButtonType.EDIT_CHILD:
@@ -181,6 +186,7 @@ const onClick = (e) => {
         dialog.show("No hay ningun registro seleccionado para modificar","",DialogType.ALERT);
         return;
       }
+      raiseEvent ("buttonClick", dataIndex, info.type);
       toggleState(dataIndex);
       break;
   
@@ -194,16 +200,20 @@ const onClick = (e) => {
         if (r === DialogResult.CANCEL_NO) return;
         if (!dataTables.delete(dataIndex)) dialog.show("No se puedo eliminar el registro","",DialogType.ERROR);
       })
+
+      raiseEvent ("buttonClick", dataIndex, info.type);
       break;
   
     case ButtonType.CANCEL_CHILD:
+      raiseEvent ("buttonClick", dataIndex, info.type);
+
       inputFields.fill(dataIndex);
       toggleState(dataIndex);
       break;
 
     case ButtonType.CLOSE:
-
-    break;
+      raiseEvent ("buttonClick", dataIndex, info.type);
+      break;
   
   }
 }
@@ -281,3 +291,16 @@ const toggleState = (dataIndex) => {
 }
 
 export const buttons = new ButtonCollection();
+
+const raiseEvent = (eventName, dataIndex, buttonType) => {
+  /*informar a los grids que la informacion se ha actualizado*/
+  document.dispatchEvent(new CustomEvent(eventName, {
+    detail: {
+     "dataIndex": dataIndex,
+     "buttonType": buttonType,
+    },
+    bubbles: true,
+    composed: true
+    }
+  ))
+}

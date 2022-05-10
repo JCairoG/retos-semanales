@@ -21,5 +21,9 @@
   display: flex;
   margin: auto;
   align-content: center;
-  max-width: 50%;
+  max-width: 1024px;
+}
+
+.section__producto{
+  max-width: 1024px;
 }

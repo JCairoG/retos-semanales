@@ -3,11 +3,15 @@ import {validate} from './validations.js';
 import {dialog, DialogType} from './dialogs.js';
 import {fillClientsGallery, fillGridFeatures} from './data.js'
 
+const details = navigator.userAgent;
+const regexp = /android|iphone|kindle|ipad/i;
+const isMobileDevice = regexp.test(details);
+const wspLinkDesktop ="https://web.whatsapp.com/send?phone=";
+const wspLinkMobile ="https://wa.me/";
+const wspMessage="51984119920&text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
+
 document.addEventListener("DOMContentLoaded", () =>{
-
-  /*const wspLink ="https://web.whatsapp.com/send?phone=51984119920&text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software";*/
-  const wspLink ="https://wa.me/51984119920?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software";
-
+  
   const hamburger = document.getElementById("header__hamburger-icon");
   const navMenu = document.getElementById("header__menu-list");
   const navLink = document.querySelectorAll(".header__menu-nav");
@@ -50,9 +54,17 @@ document.addEventListener("DOMContentLoaded", () =>{
     element.addEventListener('click', sectionToggle);
   })
  
-  const openWhatsAppWeb = (e) =>{
-    e.preventDefault();
-    const win = window.open(wspLink, '_blank');
+  const openWhatsApp = (e) =>{
+    let wspLink;
+    
+    if (isMobileDevice)
+      wspLink=wspLinkMobile;
+    else
+      wspLink=wspLinkDesktop;
+  
+    console.log(wspLink+wspMessage);
+
+    const win = window.open(wspLink+wspMessage, '_blank');
     win.focus();
   };
 
@@ -68,14 +80,15 @@ document.addEventListener("DOMContentLoaded", () =>{
 
   navLink.forEach((nav) => {
     nav.addEventListener("click", closeMenu);
-    if (nav.id="header__menu-item-contact"){
-      nav.href=wspLink;
+    if (nav.id==="header__menu-item-contact"){
+      nav.href="";
+      nav.addEventListener("click", openWhatsApp);
     }
   });
 
   hamburger.addEventListener("click", openMenu);
-  wspMsg.addEventListener("click", openWhatsAppWeb);
-  wspMsg2.addEventListener("click", openWhatsAppWeb);
+  wspMsg.addEventListener("click", openWhatsApp);
+  wspMsg2.addEventListener("click", openWhatsApp);
   btnContactShow.addEventListener("click", showContactForm);
   btnContactSend.addEventListener("click", sendContactData);
   btnContactCancel.addEventListener("click", showContactForm);

@@ -2,15 +2,23 @@ const gridFeatures = document.getElementById("features__table");
 
 const clientsGalleryInfo = (e) => {
   const infoContainer = document.getElementById("clients__info-container"); 
+  infoContainer.innerHTML = "";
+  let item;
+
+  if (e.target.tagName==="IMG"){
+    item = e.target.parentElement;
+  }else{
+    item = e.target;
+  }
   
-  const item = e.target;
   const name = item.getAttribute("alias");
   const info = item.getAttribute("clientInfo");
   if (!info) return;
 
-  infoContainer.innerHTML = name + "<br>" + info;
   const Top = item.offsetTop - 40 + "px"
   const Left = item.offsetLeft + "px" 
+
+  infoContainer.innerHTML = name + "<br>" + info;
   infoContainer.style.top = Top;
   infoContainer.style.left = Left;
 }
@@ -92,9 +100,14 @@ export const fillClientsGallery = async () =>{
   })
   galleryClients.innerHTML += `<div class="clients__info-container" id="clients__info-container"></div>`;
 
-  const gallery = document.querySelectorAll(".clients__gallery-image-container"); 
+  const galleryContainer = document.querySelectorAll(".clients__gallery-image-container"); 
+  const galleryImg = document.querySelectorAll(".clients__gallery-image"); 
 
-  gallery.forEach((img) => {
+  galleryContainer.forEach((img) => {
+    img.addEventListener("mouseover", clientsGalleryInfo)
+  });
+
+  galleryImg.forEach((img) => {
     img.addEventListener("mouseover", clientsGalleryInfo)
   });
 }

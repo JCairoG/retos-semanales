@@ -5,7 +5,8 @@ import {fillClientsGallery, fillGridFeatures} from './data.js'
 
 document.addEventListener("DOMContentLoaded", () =>{
 
-  const wspLink ="https://web.whatsapp.com/send?phone=51984119920&text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software";
+  /*const wspLink ="https://web.whatsapp.com/send?phone=51984119920&text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software";*/
+  const wspLink ="https://wa.me/51984119920?text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software";
 
   const hamburger = document.getElementById("header__hamburger-icon");
   const navMenu = document.getElementById("header__menu-list");

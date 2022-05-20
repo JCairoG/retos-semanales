@@ -6,9 +6,9 @@ import {fillClientsGallery, fillGridFeatures} from './data.js'
 const details = navigator.userAgent;
 const regexp = /android|iphone|kindle|ipad/i;
 const isMobileDevice = regexp.test(details);
-const wspLinkDesktop ="https://web.whatsapp.com/send?phone=51984119920&text";
-const wspLinkMobile ="https://wa.me/51984119920?text";
-const wspMessage="=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
+const wspLinkDesktop ="https://web.whatsapp.com/send?phone=51984119920&";
+const wspLinkMobile ="https://wa.me/51984119920?";
+const wspMessage="text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
 
 document.addEventListener("DOMContentLoaded", () =>{
   
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     else
       wspLink=wspLinkDesktop;
   
-    console.log(wspLink+wspMessage);
+    alert(wspLink+wspMessage);
 
     const win = window.open(wspLink+wspMessage, '_blank');
     win.focus();

@@ -1,0 +1,21 @@
+[{
+  "idProd": 28,
+  "name": "Billetera",
+  "description": "Billetera de cuero negro",
+  "reference": "REF-005",
+  "price": 900
+}, {
+  "idProd": 145,
+  "name": "Cartera",
+  "description": "Cartera de cuero color café",
+  "reference": "CAR-195",
+  "price": 1100
+},
+{
+  "idProd": 39,
+  "name": "Diseño de monedero ",
+  "description": "Diseño de monedero en cuero.",
+  "reference": "MON-225",
+  "price": 700
+}
+]

@@ -1,30 +1,27 @@
 'use strict'
-import {dataTables} from './data.js';
-import {inputFields} from './inputs.js';
-import {buttons, ButtonType} from './buttons.js';
-import {dataGrid} from './grid.js';
+import {ButtonType} from './buttons.js';
+import {DataForm} from './form.js';
 
 const documentReady = () => {
-  inputFields.initialize(); 
-  buttons.initialize();
-  dataGrid.initialize();
-  dataTables.openTables();
-
-
+  const dataForm = new DataForm();
+  dataForm.setInfo(0,"https://pokeapi.co/api/v2/pokemon/pikachu", "id");
+  dataForm.fetch(0);
+      
   document.addEventListener("buttonClick", (e) =>{buttonClick(e)});
 
   const buttonClick = (e) =>{
     switch (e.detail.buttonType){
       case ButtonType.ADD:
         /*fake id*/
-        document.getElementById("0_idProd").value = Math.floor(Math.random()*1000);
+        dataForm.doAction(e.detail.dataIndex, e.detail.buttonType);
+        document.getElementById("0_id").value = Math.floor(Math.random()*1000)+1;
         break;
-
-    }
+  
+      default:
+        dataForm.doAction(e.detail.dataIndex, e.detail.buttonType);
+        break;
+      }
   }
-
 }
 
 document.addEventListener('DOMContentLoaded', documentReady);
-
-

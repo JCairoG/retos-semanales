@@ -1,0 +1,57 @@
+[{
+  "idLocation": "1",
+  "idProd": 28,
+  "name": "Bodega Norte",
+  "address": "Dirección de la bodega Norte",
+  "stock": "28"
+},
+{
+  "idLocation": "5",
+  "idProd": 28,
+  "name": "Bodega Sur",
+  "address": "Bodega ubicada en la zona sur",
+  "stock": "60"
+},
+{
+  "idLocation": "1",
+  "idProd": 145,
+  "name": "Bodega Norte",
+  "address": "Dirección de la bodega Norte",
+  "stock": "80"
+},
+{
+  "idLocation": "5",
+  "idProd": 145,
+  "name": "Bodega Sur",
+  "address": "Bodega ubicada en la zona sur",
+  "stock": "121"
+},
+{
+  "idLocation": "32",
+  "idProd": 145,
+  "name": "Bodega Central",
+  "address": "Bodega ubicada en el centro de la ciudad",
+  "stock": "47"
+},
+{
+  "idLocation": "1",
+  "idProd": 39,
+  "name": "Bodega Sur",
+  "address": "Bodega ubicada en la zona sur",
+  "stock": "69"
+},
+{
+  "idLocation": "5",
+  "idProd": 39,
+  "name": "Bodega Norte",
+  "address": "Dirección de la bodega Norte",
+  "stock": "1"
+},
+{
+  "idLocation": "32",
+  "idProd": 39,
+  "name": "Bodega Central",
+  "address": "Bodega ubicada en el centro de la ciudad",
+  "stock": "0"
+}
+]

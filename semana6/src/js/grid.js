@@ -1,32 +1,31 @@
 'use strict'
 import {dataTables} from './data.js';
-import {ButtonType} from './buttons.js';
+import {elementState} from './elementState.js';
 
 let GRID_COLLECTION=[];
 
-class DataGridCollection{
+export class DataGridCollection{
   constructor (){
     document.addEventListener("dataChanged", (e) =>{
       this.fill(e.detail.dataIndex);
     });
 
-    document.addEventListener("buttonClick", (e) =>{
-      toggleState(e.detail.dataIndex, e.detail.buttonType);
+    document.addEventListener("toggleState", (e) =>{
+      toggleState(e.detail.dataIndex);
     });
-  }
-
-  initialize = () => {
+    
     const GRIDS = document.querySelectorAll("table");
     
     for (const grid of GRIDS) {
-      const index = grid.id.split("_")[0];
+      const index = grid.id.split("#")[0];
       const cols = grid.getElementsByTagName("th");
       let colInfo=[];
       
       for (const col of cols) {
-        const colId = col.id.split("_")[1];
+        const colId = col.id.split("#")[1];
         colInfo.push ({"colId": colId, "class": col.className});
       }
+
       GRID_COLLECTION.push({"dataIndex":index, "id":grid.id, "columns":colInfo});
       grid.addEventListener("click", this.getSelectedId);
     }
@@ -41,13 +40,44 @@ class DataGridCollection{
     for (const item of getGrids(dataIndex)){
       const grid = document.getElementById(item.id).getElementsByTagName("tbody")[0];
       grid.innerHTML = "";
-      data.forEach((row)=>{
+      
+      if (!data) continue;
+      
+      if (data.length === undefined){
+        /*es un json de un solo registro*/
         let cellData ="";
+        
+        /*
+        Object.entries(data).forEach(([key, value]) => {
+          console.log(key,value);
+        });
+        */
+
         for (let col of item.columns){
-          cellData+=`<td class="${col.class}">${row[col.colId]}</td>`;
+          const keys = col.colId.split(".");
+          let colValue;
+          if (keys.length===1)
+            colValue = data[keys[0]];
+          else if (keys.length===2)
+            colValue = data[keys[0]][keys[1]];
+          else if (keys.length===3)
+            colValue = data[keys[0]][keys[1]][keys[2]];
+            
+          cellData+=`<td class="${col.class}">${colValue}</td>`;
         }
         grid.innerHTML += `<tr>${cellData}</tr>`;
-      })
+
+      }else{
+        
+        data.forEach((row)=>{
+          let cellData ="";
+          for (let col of item.columns){
+            cellData+=`<td class="${col.class}">${row[col.colId]}</td>`;
+          }
+          grid.innerHTML += `<tr>${cellData}</tr>`;
+        })
+
+      }
     }
   }
   
@@ -55,16 +85,32 @@ class DataGridCollection{
     const td = e.target;
     const rowIndex = td.parentElement.rowIndex;
     if (rowIndex===0) return;
+
     try{
       const grid = td.parentElement.parentElement.parentElement;
-      if (grid.classList.contains("--disabled")) return;
+      const status = grid.getAttribute("status");
+      const toggle = grid.getAttribute("toggled");
+      if (status ==="disabled" || (status ==="enabled" && toggle ==="1")) return;
 
       const idSel =  grid.rows[rowIndex].cells[0].innerHTML;
-      const dataIndex = grid.id.split("_")[0];
+      const dataIndex = grid.id.split("#")[0];
+      
       if (idSel != "") dataTables.find(dataIndex,idSel);
+      
     }catch{
 
     }
+  }
+
+  toggleState = (dataIndex) => {
+    if (isNaN(dataIndex)) return;
+  
+    dataIndex = dataIndex.toString();
+    
+    GRID_COLLECTION.forEach((item)=>{
+      const grid = document.getElementById(item.id);
+      elementState.toggleState(grid);
+    })
   }
 }
 
@@ -76,24 +122,3 @@ const getGrids= (dataIndex) => {
     item.dataIndex === dataIndex
   );
 }
-
-const toggleState= (dataIndex, buttonType) => {
-  if (isNaN(dataIndex)) return;
-
-  switch (buttonType){
-    case ButtonType.ADD: 
-    case ButtonType.EDIT: 
-    case ButtonType.CANCEL: 
-    case ButtonType.ADD_CHILD: 
-    case ButtonType.EDIT_CHILD:
-    case ButtonType.CANCEL_CHILD: 
-      console.log('toggle state grids', buttonType);
-      GRID_COLLECTION.forEach(item => {
-        document.getElementById(item.id).classList.toggle("--disabled");
-      });      
-    break;
-  }
-
-}
-
-export const dataGrid = new DataGridCollection();

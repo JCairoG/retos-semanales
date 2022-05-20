@@ -81,11 +81,11 @@ class Dialog{
     dlgButton3 = document.getElementById('dialog_button3');
 
     typeProps = [
-      {type: DialogType.INFO,     icon: "./src/img/dlg_info.png",    color: "#3399FF", defaultTitle: "Información"},
-      {type: DialogType.ERROR,    icon: "./src/img/dlg_error.png",   color: "#FF0000", defaultTitle: "Error"},
-      {type: DialogType.QUESTION, icon: "./src/img/dlg_question.png",color: "#3399FF", defaultTitle: "Pregunta"},
-      {type: DialogType.DENIED,   icon: "./src/img/dlg_denied.png",  color: "#FF0000", defaultTitle: "Denegado"},
-      {type: DialogType.ALERT,    icon: "./src/img/dlg_alert.png",   color: "#FFFF00", defaultTitle: "Alerta"}
+      {type: DialogType.INFO,     icon: "./src/images/dlg_info.png",    color: "#3399FF", defaultTitle: "Información"},
+      {type: DialogType.ERROR,    icon: "./src/images/dlg_error.png",   color: "#FF0000", defaultTitle: "Error"},
+      {type: DialogType.QUESTION, icon: "./src/images/dlg_question.png",color: "#3399FF", defaultTitle: "Pregunta"},
+      {type: DialogType.DENIED,   icon: "./src/images/dlg_denied.png",  color: "#FF0000", defaultTitle: "Denegado"},
+      {type: DialogType.ALERT,    icon: "./src/images/dlg_alert.png",   color: "#FFFF00", defaultTitle: "Alerta"}
     ];
 
   }  

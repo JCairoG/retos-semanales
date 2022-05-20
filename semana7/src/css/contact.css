@@ -1,0 +1,99 @@
+.input-container {
+  display: flex;
+  transition: all 0.25s;
+  width: 100%;
+  flex: 0 0 auto;
+  position: relative;
+  padding: 0.45rem 0.25rem;
+}
+
+.input-container > input[type=text],.input-container > input[type=email], .input-container > input [type=select-one] .input-container > input [type=textarea]{
+  margin: 0;
+  padding: 0.5rem;
+  width: 100%;
+  color: var(--secondary-font-color);
+  font-size: calc(var(--font-size) * 0.6);
+  text-align: left;
+  border: 1px solid var(--secondary-background-color);
+  width: 100%;
+  height: calc(var(--font-size) * 0.6 * 1.8);
+  margin-top: 0.75rem;
+}
+
+.input-container > input[type=number] {
+  margin: 0;
+  width: 100%;
+  color: var(--secondary-font-color);
+  font-size: calc(var(--font-size) * 0.6);
+  text-align: left;
+  outline: none;
+  border: none;
+  border: 1px solid var(--secondary-background-color);
+  width: 100%;
+  height: calc(var(--font-size) * 0.6 * 1.8);
+  margin-top: 0.75rem;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.input-container > input:focus {
+  background-color: var(--secondary-background-color-gradient);
+}
+
+.input-container > input::placeholder {
+  color: transparent;
+}
+
+.input-container > input:placeholder-shown ~ label {
+  transform: scale(1.2) translateY(1.3rem) translateX(0.1rem);
+  opacity: 0.75;
+  color: var(--secondary-font-color);
+}
+
+.input-container > input:focus ~ label {
+  transform: none;
+  color: var(--primary-font-color);
+}
+
+.input-container > label {
+  margin: 0;
+  width: 100%;
+  color: var(--primary-font-color);
+  font-size: calc(var(--font-size) * 0.5);
+  text-align: left;
+  position: absolute;
+  padding: 0 0.5rem;
+  top: -3px;
+  left: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+  transform-origin: 0 0;
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+@media (min-width: 870px) {
+  .col-2 {
+    width: 16.66666667%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33333333%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-8 {
+    width: 66.66666667%;
+  }
+  .col-10 {
+    width: 83.33333333%;
+  }
+  
+  .col-12 {
+    width: 100%;
+  }
+
+}

@@ -1,11 +1,6 @@
 'use strict'
-import {dataTables} from './data.js';
-import {inputFields} from './inputs.js';
-import {dialog, DialogType, DialogButtons, DialogResult} from './dialogs.js';
-
 let BUTTON_COLLECTION =[];
 let buttonProps = [];
-let actionAdd = 0;
 
 export const ButtonType = Object.freeze({
   ADD: 0,
@@ -24,9 +19,8 @@ export const ButtonType = Object.freeze({
   SEARCH_CHILD: 13,
 })
 
-class ButtonCollection{
-  initialize = () => {
-
+export class ButtonCollection{
+  constructor (){
     buttonProps = [
       {"type": ButtonType.ADD,          "icon": "./img/dlg_info.png",    "title": "Agregar"},
       {"type": ButtonType.EDIT,         "icon": "./img/dlg_error.png",   "title": "Editar"},
@@ -44,13 +38,24 @@ class ButtonCollection{
       {"type": ButtonType.SEARCH_CHILD, "icon": "./img/dlg_alert.png",   "title": "Buscar"}
     ];
     
-    const BUTTONS = document.forms[0].querySelectorAll("button");
+    const BUTTONS = document.querySelectorAll("button");
   
     for (const item of BUTTONS) {
-      const index = item.id.split("_")[0];
-      const type = item.id.split("_")[1].toUpperCase();
+      let index;
+      let type;
       let newType = 0;
 
+      try{
+        index = item.id.split("#")[0];
+        type = item.id.split("#")[1].toUpperCase();
+      
+      }catch{
+        continue;
+      
+      }finally{
+        if (isNaN(index)) continue;
+      }
+      
       switch (type){
         case "ADD":
           if (index==="0")
@@ -101,196 +106,87 @@ class ButtonCollection{
       item.addEventListener("click", onClick);
     }
   }
-}
 
-const onClick = (e) => {
-  const dataIndex = e.target.id.split("_")[0];
+  toggleState = (dataIndex) => {
+    if (isNaN(dataIndex)) return;
   
-  let info = BUTTON_COLLECTION.find((item) => {
-    return item.id === e.target.id;  
-  });
-
-  switch (info.type){
-    case ButtonType.ADD:
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      actionAdd = 1;
-      toggleState(dataIndex);
-      inputFields.clean(dataIndex);
-      break;
-
-    case ButtonType.EDIT:
-      if (!dataTables.getCurrentRecord(dataIndex)){
-        dialog.show("No hay ningun registro seleccionado para modificar","",DialogType.ALERT);
-        return;
-      }
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      actionAdd = 0;
-      toggleState(dataIndex);
-      break;
-
-    case ButtonType.SAVE:
-      if (!inputFields.validate(dataIndex)) return;
-      
-      const newData  = inputFields.getDataAsArray(dataIndex);
-      if (actionAdd){
-        if (!dataTables.add(dataIndex,newData)){
-          dialog.show("No se pudo guardar la información", "", DialogType.ERROR, DialogButtons.ACEPT);
-          return;
-        }
+    dataIndex = dataIndex.toString();
+  
+    for (const item of BUTTON_COLLECTION){
+      const button = document.getElementById(item.id);
+  
+      if (item.dataIndex != dataIndex.toString()){
+        button.classList.toggle("--btn-disabled")
       }else{
-        if (!dataTables.update(dataIndex,newData)){
-          dialog.show("Error al actualizar los datos", "", DialogType.ERROR, DialogButtons.ACEPT);
-          return;
-        }
-      }
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      toggleState(dataIndex);
-      break;
+        let newType = -1;
   
-    case ButtonType.DELETE:
-      if (!dataTables.getCurrentRecord(dataIndex)){
-        dialog.show("No hay ningun registro seleccionado para eliminar","",DialogType.ALERT);
-        return;
-      }
-
-      dialog.show("¿Desea eliminar este registro?","",DialogType.QUESTION, DialogButtons.YESNO_DEFAULT_NO)
-      .then((r) =>{
-        if (r === DialogResult.CANCEL_NO) return;
-        if (!dataTables.delete(dataIndex)) dialog.show("No se puedo eliminar el registro","",DialogType.ERROR);
-      })
+        switch (item.type){
+          case ButtonType.ADD:
+            button.disabled = button.classList.toggle("--btn-disabled") /*via css*/
+            break;
       
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      break;
-
-    case ButtonType.CANCEL:
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      inputFields.fill(dataIndex);
-      toggleState(dataIndex);
-      break;
-
-    case ButtonType.ADD_CHILD:
-      if (!dataTables.getCurrentRecord(0)) return;
-      raiseEvent ("buttonClick", dataIndex, info.type);
-
-      inputFields.clean(dataIndex);
-      toggleState(dataIndex);
-      break;
-
-    case ButtonType.SAVE_CHILD:
-      toggleState(dataIndex);
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      break;
+          case ButtonType.EDIT:
+            newType = ButtonType.SAVE;
+            break;
   
-    case ButtonType.EDIT_CHILD:
-      if (!dataTables.getCurrentRecord(dataIndex)){
-        dialog.show("No hay ningun registro seleccionado para modificar","",DialogType.ALERT);
-        return;
+          case ButtonType.SAVE:
+            newType = ButtonType.EDIT;
+            break;
+    
+          case ButtonType.DELETE:
+            newType = ButtonType.CANCEL;
+            break;
+      
+          case ButtonType.CANCEL:
+            newType = ButtonType.DELETE;
+            break;
+  
+          case ButtonType.ADD_CHILD:
+            newType = ButtonType.SAVE_CHILD;
+            break;
+      
+          case ButtonType.EDIT_CHILD:
+            button.disabled = button.classList.toggle("--btn-disabled") /*via css*/
+            break;
+  
+          case ButtonType.SAVE_CHILD:
+            newType = ButtonType.ADD_CHILD;
+            break;
+    
+          case ButtonType.DELETE_CHILD:
+            newType = ButtonType.CANCEL_CHILD;
+            break;
+      
+          case ButtonType.CANCEL_CHILD:
+            newType = ButtonType.DELETE_CHILD;
+            break;
+  
+          case ButtonType.SEARCH:
+            button.disabled = button.classList.toggle("--btn-disabled") /*via css*/
+            break;
+    
+          case ButtonType.CLOSE:
+            button.disabled = button.classList.toggle("--btn-disabled") /*via css*/
+            break;
+        }
+        
+        /*actualiza estado*/
+        if (newType != -1){
+          item.type = newType;
+          button.innerHTML = buttonProps[newType].title;
+        } 
       }
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      toggleState(dataIndex);
-      break;
-  
-    case ButtonType.DELETE_CHILD:
-      if (!dataTables.getCurrentRecord(dataIndex)){
-        dialog.show("No hay ningun registro seleccionado para eliminar","",DialogType.ALERT);
-        return;
-      }
-      dialog.show("¿Desea eliminar este registro?","",ButtonType.QUESTION, DialogButtons.YESNO_DEFAULT_NO)
-      .then((r) =>{
-        if (r === DialogResult.CANCEL_NO) return;
-        if (!dataTables.delete(dataIndex)) dialog.show("No se puedo eliminar el registro","",DialogType.ERROR);
-      })
-
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      break;
-  
-    case ButtonType.CANCEL_CHILD:
-      raiseEvent ("buttonClick", dataIndex, info.type);
-
-      inputFields.fill(dataIndex);
-      toggleState(dataIndex);
-      break;
-
-    case ButtonType.CLOSE:
-      raiseEvent ("buttonClick", dataIndex, info.type);
-      break;
-  
+    }
   }
 }
 
-const toggleState = (dataIndex) => {
-  if (isNaN(dataIndex)) return;
-
-  dataIndex = dataIndex.toString();
-  
-  for (const item of BUTTON_COLLECTION){
-    const button = document.getElementById(item.id);
-
-    if (item.dataIndex != dataIndex.toString()){
-      button.classList.toggle("--btn-disabled")
-    }else{
-      let newType = -1;
-
-      switch (item.type){
-        case ButtonType.ADD:
-          button.classList.toggle("--btn-disabled")
-          break;
-    
-        case ButtonType.EDIT:
-          newType = ButtonType.SAVE;
-          break;
-
-        case ButtonType.SAVE:
-          newType = ButtonType.EDIT;
-          break;
-  
-        case ButtonType.DELETE:
-          newType = ButtonType.CANCEL;
-          break;
-    
-        case ButtonType.CANCEL:
-          newType = ButtonType.DELETE;
-          break;
-
-        case ButtonType.ADD_CHILD:
-          newType = ButtonType.SAVE_CHILD;
-          break;
-    
-        case ButtonType.EDIT_CHILD:
-          button.classList.toggle("--btn-disabled")
-          break;
-
-        case ButtonType.SAVE_CHILD:
-          newType = ButtonType.ADD_CHILD;
-          break;
-  
-        case ButtonType.DELETE_CHILD:
-          newType = ButtonType.CANCEL_CHILD;
-          break;
-    
-        case ButtonType.CANCEL_CHILD:
-          newType = ButtonType.DELETE_CHILD;
-          break;
-
-        case ButtonType.SEARCH:
-          button.classList.toggle("--btn-disabled")
-          break;
-  
-        case ButtonType.CLOSE:
-          button.classList.toggle("--btn-disabled")
-          break;
-      }
-      
-      /*actualiza estado*/
-      if (newType != -1){
-        item.type = newType;
-        button.innerHTML = buttonProps[newType].title;
-      } 
-    }
-  };
+const onClick = (e) => {
+  const dataIndex = e.target.id.split("#")[0];
+  let info = BUTTON_COLLECTION.find((item) => {
+    return item.id === e.target.id;  
+  });
+  raiseEvent ("buttonClick", dataIndex, info.type);
 }
-
-export const buttons = new ButtonCollection();
 
 const raiseEvent = (eventName, dataIndex, buttonType) => {
   /*informar a los grids que la informacion se ha actualizado*/

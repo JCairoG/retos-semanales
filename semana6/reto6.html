@@ -21,7 +21,7 @@
       <div class="row">
         <section class="col-md-8">
           <h2 class="text-left mt-4">Elija un producto para más detalles</h2>
-          <table class="table table-striped table-hover table-sm" id="0_gridProductos">
+          <table class="table table-striped table-hover table-sm" id="0_gridProductos" status="enabled">
             <thead>
               <tr>
                 <th scope="col" id="prod_idProd" class="--table-hidden-col">Código</th>
@@ -35,7 +35,7 @@
             </tbody>
           </table>
 
-          <table class="table table-striped table-hover table-sm" id="1_gridDetalles">
+          <table class="table table-striped table-hover table-sm --grid-enabled" id="1_gridDetalles" status="enabled">
             <thead>
               <tr>
                 <th scope="col" id="det_idLocation" class="--table-hidden-col">Código</th>
@@ -50,6 +50,7 @@
           </table>
 
         </section>
+        
         <section class="row-md-2 section__producto">
           <form class="py-2 mt-4" id="formProducto">
             <div class="form-floating mb-3">
@@ -58,22 +59,22 @@
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="0_name" placeholder="Nombre" />
+              <input type="text" class="form-control" id="0_name" placeholder="Nombre" status="focus" disabled/>
               <label for="0_nombre">Nombre</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="0_description" placeholder="Descripción" />
+              <input type="text" class="form-control" id="0_description" placeholder="Descripción" status="disabled" disabled/>
               <label for="0_description">Descripción</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="0_reference" placeholder="Cod. Referencia" />
+              <input type="text" class="form-control" id="0_reference" placeholder="Cod. Referencia" status="disabled" disabled/>
               <label for="0_reference">Cod. Referencia</label>
             </div>
 
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="0_price" placeholder="Precio" />
+              <input type="number" class="form-control" id="0_price" placeholder="Precio" status="disabled" disabled/>
               <label for="0_price">Precio</label>
             </div>
 
@@ -82,8 +83,40 @@
               <button type="button" class="btn btn-primary w-70 mb-3" id="0_edit"></button>
               <button type="button" class="btn btn-primary w-70 mb-3" id="0_del"></button>
             </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="1_idProd" placeholder="Código Producto" status="nosave" disabled/>
+              <label for="1_idProd">Código Producto</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="1_idLocation" placeholder="Código Locación" disabled/>
+              <label for="1_idLocation">Código Locación</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="1_name" placeholder="Nombre" status="focus" disabled/>
+              <label for="1_name">Nombre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="1_address" placeholder="Dirección" status="disabled" disabled/>
+              <label for="1_address">Descripción</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="1_stock" placeholder="Stock" status="disabled" disabled/>
+              <label for="1_stock">Stock</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <button type="button" class="btn btn-primary w-70 mb-3" id="1_add"></button>
+              <button type="button" class="btn btn-primary w-70 mb-3" id="1_edit"></button>
+              <button type="button" class="btn btn-primary w-70 mb-3" id="1_del"></button>
+            </div>
           </form>
         </section>
+
       </div>
     </section>
 
@@ -96,11 +129,13 @@
   </main>
   
   <script type="module" src="./src/js/index.js"></script>
-  <script type="module" src="./src/js/chart.js"></script>
 
+  <!--
+  <script type="module" src="./src/js/chart.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
   integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  -->
 
 </body>
 

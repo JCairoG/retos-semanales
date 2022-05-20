@@ -1,13 +1,14 @@
 'use strict'
 import {dataTables} from './data.js';
 import {dialog, DialogType, DialogButtons} from './dialogs.js';
+import {elementState} from './elementState.js';
 
 const TITLE = document.title;
 
 let idTimeOut = 0 ;
 let INPUT_COLLECTION=[];
 
-class InputCollection{
+export class InputCollection{
   constructor () {
     document.addEventListener("dataCursorMoved", (e) =>{
       this.fill(e.detail.dataIndex);
@@ -16,10 +17,10 @@ class InputCollection{
     document.addEventListener("dataChanged", (e) =>{
       this.fill(e.detail.dataIndex);
     });
-  } 
 
-  initialize = () => {
-    const INPUTS = document.forms[0].querySelectorAll("input, select");
+    document.addEventListener("keyup", keyUp);
+     
+    const INPUTS = document.querySelectorAll("input, select");
   
     for (const item of INPUTS) {
       switch (item.type) {
@@ -37,23 +38,41 @@ class InputCollection{
           else
             msg = `Debe completar el campo\r ${msg} con un dato válido`;
   
-          index = item.id.split("_")[0];
-          dataField = item.id.split("_")[1];
+          index = item.id.split("#")[0];
+          dataField = item.id.split("#")[1];
+
           INPUT_COLLECTION.push ({"dataIndex":index, "id": item.id, "dataField":dataField, "validationText": msg});
       }
     }
   }
   
+  toggleState = (dataIndex) => {
+    if (isNaN(dataIndex)) return;
+
+    for (const item of getInputs(dataIndex))
+      elementState.toggleState(document.getElementById(item.id))
+  }
+  
   fill = (dataIndex) => {
     if (isNaN(dataIndex)) return;
-    this.clean(dataIndex);
 
+    this.clean(dataIndex);
     const data = dataTables.getCurrentRecord(dataIndex);
     if (!data) return;
-
+    
     for (const item of getInputs(dataIndex)){
+
+      const keys = item.dataField.split(".");
+      let colValue;
+      if (keys.length===1)
+        colValue = data[keys[0]];
+      else if (keys.length===2)
+        colValue = data[keys[0]][keys[1]];
+      else if (keys.length===3)
+        colValue = data[keys[0]][keys[1]][keys[2]];
+
       const input = document.getElementById(item.id);
-      input.value = data[item.dataField];
+      input.value = colValue;
     }
   }
   
@@ -70,13 +89,16 @@ class InputCollection{
     if (isNaN(dataIndex)) return;
   
     let data={};
-    
+
     const itemColl = getInputs(dataIndex);
     for (const item of itemColl){
       const e = document.getElementById(item.id);
-      const type = e.type.toString(); /*mas adelante para formatear la data segun el campo*/
-      const value = e.value;
-      data[item.dataField]=value;
+      const status = e.getAttribute("status");
+      if (status != "nosave"){
+        const type = e.type.toString(); /*mas adelante para formatear la data segun el campo*/
+        const value = e.value;
+        data[item.dataField]=value;
+      }
     }
     return data;
   }
@@ -88,7 +110,7 @@ class InputCollection{
     for (const item of itemColl){
       const e = document.getElementById(item.id);
       const type = e.type.toString();
-      const value = e.value;
+      const value = e.value.trim();
     
       if (e.disabled || e.hidden) continue; 
     
@@ -102,7 +124,7 @@ class InputCollection{
             })
             return false;
           }else{
-            e.value=value.trim();
+            e.value = value;
           }
         }
         break;
@@ -117,7 +139,7 @@ class InputCollection{
               return false;
             })
           }else{
-            e.value = value.trim().toLowerCase();
+            e.value = value.toLowerCase();
           }
         }
         break;
@@ -131,7 +153,7 @@ class InputCollection{
             })
             return false;
           }else{
-            e.value=value.trim();
+            e.value=value;
           }
         }
         break; 
@@ -162,7 +184,7 @@ const findLabelTextForControl = (idVal) => {
   }
 }
 
-const getInputs= (dataIndex) => {
+const getInputs = (dataIndex) => {
   if (isNaN(dataIndex)) return;
 
   dataIndex = dataIndex.toString();
@@ -171,7 +193,7 @@ const getInputs= (dataIndex) => {
   );
 }
 
-const setInvalidStyle = e => {
+const setInvalidStyle = (e) => {
   clearTimeout(idTimeOut);
   e.scrollIntoView(false);
   const bgColor = e.style.backgroundColor;
@@ -181,4 +203,12 @@ const setInvalidStyle = e => {
   }, 1000);
 }
 
-export const inputFields = new InputCollection();
+const keyUp = (e) => {
+  if ((e.keyCode || e.which) == 13) {
+    /*
+    e.preventDefault();
+    e.keyCode = 9;
+    return e.keyCode;
+    */
+  }
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <link rel="stylesheet" href="./src/css/contact.css" />
+    <title>SITEV</title>
+  </head>
+  
+  <body class="body">
+    <header class="header">
+      <div class="header-container">
+        <a href="#" class="header__logo-nav">
+          <figure class="header__logo-container">
+            <img src="./src/images/logo_sitev.png" class="header__logo"></img>
+          </figure>
+        </a>
+
+        <ul class="header__menu-list" id="header__menu-list">
+          <li class="header__menu-item">
+            <a href="#main" class="header__menu-nav">Inicio</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#features" class="header__menu-nav">Características</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="#clients" class="header__menu-nav">Nuestros Clientes</a>
+          </li>
+          <li class="header__menu-item" id="header__menu-item-contact">
+            <a href="#contact" class="header__menu-nav">Contáctenos</a>
+          </li>
+        </ul>
+      
+        <div class="header__hamburger-icon" id="header__hamburger-icon">
+          <span class="header__hamburger-bar"></span>
+          <span class="header__hamburger-bar"></span>
+          <span class="header__hamburger-bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main" id="main">
+      <div class="main-container">
+        <h1 class="main__title">Sistema Integrado de Inspección Técnica Vehicular</h1>
+        <figure class="main-image-container">
+          <img src="./src/images/logo_sitev.png" class="main__image"></img>
+        </figure>
+        <h2 class="main__subtitle">Software Informático y de Comunicaciones para Centros de Inspección Técnica Vehicular</h2>
+      </div>
+
+      <div class="main-container2">
+        <div class="main-container-info">
+          <h2 class="main__subtitle-info">¿Que es SITEV?</h2>
+          <p class="main__details">
+            El Sistema Integrado de Inspección Técnica Vehicular - SITEV, es un software creado y desarrollado en el Perú, que permite controlar de manera integral el proceso de inspección técnica vehicular. Además, está pensado en ser una herramienta de gestión y administración para el CITV, importante para la toma de decision
+          </p>
+          <p class="main__details">
+            SITEV está desarrollado de acuerdo a los requerimientos y normativas vigentes del Ministerio de Transportes y Comunicaciones - MTC,incluyendo la interconexión en tiempo real al Servicio Web de Interoperabilidad (R.D. N° 4801-2017-MTC/15) y un módulo para la gestión del Archivo Digital de los expedientes técnico
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <section class="features" id="features">
+      <div class="features-container">
+        <h2 class="features__subtitle">¿Por que elegir SITEV?</h2>
+        <p class="features__details">SITEV es la mejor opción del mercado debido a características que lo hacen muy completo, siendo algunas de ellas:</p>
+
+        <ul class="features__main-list">
+          <li class="features__main-item">
+            <img src="./src/images/icon_calc.png" alt="Facilidad de uso" class="features__main-item-image"/>
+            <p class="features__main-title">
+              SOFTWARE INTELIGENTE Y FÁCIL DE USAR
+            </p>
+            <p class="features__main-subtitle">
+              SITEV es muy fácil de usar y cuenta con muchos procesos de validación inteligentes, reduciendo los posibles errores del proceso.
+              <br>
+              <br>
+              Aún si no cuenta con personal experto, SITEV se encargará de validar la información por Ud.
+            </p>
+          </li>
+            
+          <li class="features__main-item">
+            <img src="./src/images/icon_fe.png" alt="Preparado para Facturación Electrónica" class="features__main-item-image"/>
+            <p class="features__main-title">
+              PREPARADO PARA FACTURACIÓN ELECTRÓNICA
+            </p>
+            <p class="features__main-subtitle">
+              SITEV cuenta con un módulo integrado de Facturación Electrónica, estando además preparado para enlazarse con cualquier otro proveedor de facturación electrónica*.
+            </p>
+            <p class="features__main-subtitle --cursive">
+              (*)El enlace a un proveedor de facturacion electronica externo, puede estar sujeto a costos adicionales
+            </p>
+          </li>
+
+          <li class="features__main-item">
+            <img src="./src/images/icon-interconec.png" alt="Centralizacion de información" class="features__main-item-image"/>
+            <p class="features__main-title">
+              ¿TIENE VARIAS PLANTAS?
+            </p>
+            <p class="features__main-subtitle">
+              SITEV permite controlar y administrar de forma remota todas sus plantas*.
+              <br>
+              <br>
+              ¡Sepa al momento la cantidad de vehículos inspeccionados, montos facturados y estadísticas en tiempo real!
+            </p>
+            <p class="features__main-subtitle --cursive">
+              (*)Opción disponible para la versión FULL de SITEV y previa evaluación técnica
+            </p>
+          </li>
+        </ul>
+
+        <button class="features__button-table-toggle toggle-trigger">
+          ¿Quiere conocer mas caracteristicas de SITEV?
+          <br>
+          Click aquí para ver más
+        </button>
+        <div class="features-table-container hidden">
+          <table class="features__table" id="features__table">
+            <thead>
+              <tr>
+                <th scope="col" id="features#id" class="features__table-header --table-hidden-col" classtd="features__table-data --table-hidden-col" >Código</th>
+                <th scope="col" id="features#feature" class="features__table-header" classtd="features__table-data">Características</th>
+                <th scope="col" id="features#description" class="features__table-header" classtd="features__table-data">Detalles</th>
+              </tr>
+            </thead>
+            <tbody id="tFeatures">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    
+    <section class="clients" id="clients">
+      <div class="clients-container">
+        <div class="clients-container2">
+          <h2 class="clients__subtitle">Nuestros Clientes</h2>
+          <p class="clients__details">
+            SITEV es utilizado en más de 65 plantas a nivel nacional (más de 75 líneas de inspección), lo que representa una participación en el mercado superior al 25%.
+          </p>
+          <p class="clients__details">
+            A continuación algunos de nuestros clientes que usan SITEV en sus lineas de inspección:
+          </p>
+          <div class="clients-gallery-container" id="clients-gallery-container">
+          </div>
+          <button class="clients__button-contact" id="clients__button-contact">
+            Deseo conocer más sobre SITEV
+            <br>
+            y sus planes de licenciamiento
+          </button>
+  
+        </div>
+      </div>
+    </section>
+
+    <section class="contact hidden">
+      <div class="contact-container">
+        <h2 class="contact__subtitle">Contáctenos</h2>
+        <p class="contact__details">
+          Déjenos sus datos y nos pondremos en contacto con Ud.
+        </p>
+        
+        <div class="contact-inputs-container">
+          <div class="input-container col-12">
+            <input type="text" class="form-control" id="0_name" placeholder="Nombre" required/>
+            <label for="0_name">Nombre</label>
+          </div>
+
+          <div class="input-container col-12">
+            <input type="text" class="form-control" id="0_raz_soc" placeholder="Razón Social" required/>
+            <label for="0_raz_soc">Razón Social del CITV</label>
+          </div>
+
+          <div class="input-container col-6">
+            <input type="number" class="form-control" id="0_phone" placeholder="Teléfono" required/>
+            <label for="0_phone">Télefono</label>
+          </div>
+
+          <div class="input-container col-6">
+            <input type="email" class="form-control" id="0_mail" placeholder="Correo Electrónico" required/>
+            <label for="0_mail">Correo Electrónico</label>
+          </div>
+
+          <div class="input-container col-12">
+            <textarea rows="5" cols="60" class="form-control" id="0_msg" placeholder="Escriba su consulta" required></textarea>
+          </div>
+
+          <button class="contact__button-send" id="contact__button-send">Enviar</button>
+          <button class="contact__button-cancel" id="contact__button-cancel">Volver</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <ul class="footer__contact-list">
+          
+          <li class="footer__contact-item">
+            <i class="bi bi-telephone"></i>
+            <div class="footer__contact-container">
+              <span class="footer__contact-title">Móvil:</span>
+              <a href="tel:+51984119920" class="footer__contact-value">984119920</a>
+            </div>
+          </li>
+
+          <li class="footer__contact-item">
+            <i class="bi bi-whatsapp"></i>
+            <div class="footer__contact-container">
+              <span class="footer__contact-title">WhatsApp:</span>
+              <a href="/" id="footer__contact-wsp" class="footer__contact-value">984119920</a>
+            </div>
+          </li>
+
+          <li class="footer__contact-item">
+            <i class="bi bi-envelope"></i>
+            <div class="footer__contact-container">
+              <span class="footer__contact-title">E-Mail:</span>
+              <a href="mailto:jcairo@jcsistemasperu.com" class="footer__contact-value">jcairo@jcsistemasperu.com</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="footer-copyright-container">
+          <span class="footer__copyright-info">SITEV está creado, desarrollado y distribuido por Jimmy Cairo Gallardo</span>
+          <span class="footer__copyright-date"></span>
+        </div>
+      </div>
+    </footer>
+
+    <i class="contact-whatsApp-container" id="contact-whatsApp-icon">
+      <img src="src/icons/ico-wsp.png" class="contact-whatsApp-icon" alt="up-arrow"/>
+    </i>
+
+    <script src="src/js/app.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

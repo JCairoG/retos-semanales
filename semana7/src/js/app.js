@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () =>{
   })
  
   const openWhatsAppWeb = (e) =>{
+    e.preventDefault();
     const win = window.open(wspLink, '_blank');
     win.focus();
   };

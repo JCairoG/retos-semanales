@@ -213,6 +213,7 @@ html {
 
 .main__image-details{
   width: 100%;
+  animation: rightStart 1.5s ease-in-out 0s;
 }
 
 .main-container-info {

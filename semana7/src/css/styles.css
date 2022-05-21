@@ -237,7 +237,7 @@ html {
 .main-image-container{
   animation: popUp 2s ease-in-out 0s;
   margin: 0;
-  max-width: 200px;
+  max-width: 400px;
   overflow: hidden;
 }
 

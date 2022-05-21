@@ -15,7 +15,7 @@
 
   --font-size: 2rem;
   --transition: 0.25s ease-in;
-  --max-section-width: 1024px;
+  --max-section-width: 1200px;
 
   --main-background-image: url('../images/bg_1.png');
   --clients-background-image: url('../images/img_clientes.png');
@@ -393,6 +393,87 @@ html {
 .features__table-data{
   padding: 0.5rem;
   text-align: justify;
+}
+
+.compatibility{
+  background: linear-gradient(to right, var(--primary-background-color),var(--primary-background-color-gradient));
+}
+
+.compatibility-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+  max-width: calc(var(--max-section-width)*1.3);
+  padding: 0.75rem;
+  box-sizing: border-box;
+}
+
+.compatibility__subtitle{
+  animation: leftStart 5s ease-in-out 0s;
+  text-align: center;
+  margin: 1rem 0;
+  color: var(--primary-font-color);
+  font-size: calc(var(--font-size)*1.2);
+  text-shadow: 
+    0 0 0.125rem var(--primary-background-color),
+    0 0.125rem 0.25rem var(--secondary-background-color);
+}
+
+.compatibility__details{
+  margin: 0;
+  padding: 0;
+  color: var(--primary-font-color);
+  font-size: calc(var(--font-size)*0.75);
+  text-align: justify;
+  text-shadow: 
+    0 0 0.125rem var(--primary-background-color),
+    0 0.125rem 0.25rem var(--primary-background-color);
+}
+
+.compatibility__table{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  /*background: linear-gradient(to right, var(--secondary-background-color),var(--secondary-background-color-gradient));*/
+  margin: 0;
+}
+
+.compatibility__table-header{
+  color: var(--primary-font-color);
+  background: var(--primary-background-color);
+  padding: 0.3rem;
+  text-align: center;
+  font-size: calc(var(--font-size)*0.5);
+  border: solid var(--primary-font-color) 1px;
+}
+
+.compatibility__table-header.--vertical-header{
+  text-align: left;
+}
+
+.compatibility__table-row:nth-child(1n) {
+  color: var(--secondary-font-color);
+  background: var(--secondary-background-color-gradient);
+}
+
+.compatibility__table-row:nth-child(2n) {
+  color: var(--secondary-font-color);
+  background: var(--secondary-background-color);
+}
+
+.compatibility__table-data{
+  padding: 0.3rem;
+  text-align: center;
+  font-size: calc(var(--font-size)*0.4);
+}
+
+.compatibility__table-data.--requisites{
+  font-size: calc(var(--font-size)*0.4);
+  padding: 0.1rem;
+  text-align: left;
 }
 
 .clients-container {

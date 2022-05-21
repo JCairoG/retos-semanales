@@ -83,7 +83,7 @@ export const getGridSelectedId = (e) =>{
   }
 }
 
-export const fillClientsGallery = async () =>{
+export const clientsGalleryFill = async () =>{
   const galleryClients = document.getElementById("clients-gallery-container");
   galleryClients.innerHTML ="";
 

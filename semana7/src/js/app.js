@@ -1,14 +1,19 @@
 'strict mode';
 import {validate} from './validations.js';
 import {dialog, DialogType} from './dialogs.js';
-import {fillClientsGallery, fillGridFeatures} from './data.js'
+import {clientsGalleryFill, fillGridFeatures} from './data.js'
 
 const details = navigator.userAgent;
 const regexp = /android|iphone|kindle|ipad/i;
 const isMobileDevice = regexp.test(details);
+/*
 const wspLinkDesktop ="https://web.whatsapp.com/send?phone=51984119920&";
 const wspLinkMobile ="https://wa.me/51984119920?";
+*/
 const wspMessage="text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
+
+const wspLinkDesktop ="https://api.whatsapp.com/send?phone=51984119920&";
+const wspLinkMobile ="https://api.whatsapp.com/send?phone=51984119920&";
 
 document.addEventListener("DOMContentLoaded", () =>{
   
@@ -62,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     else
       wspLink=wspLinkDesktop;
   
-    const win = window.open(wspLink+wspMessage, '_blank');
+    const win = window.open(wspLink+wspMessage, '_blank','rel=noopener noreferrer');
     win.focus();
   };
 
@@ -92,5 +97,5 @@ document.addEventListener("DOMContentLoaded", () =>{
   btnContactCancel.addEventListener("click", showContactForm);
 
   fillGridFeatures();
-  fillClientsGallery();
+  clientsGalleryFill();
 })

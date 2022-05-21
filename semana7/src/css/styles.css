@@ -400,7 +400,7 @@ html {
 }
 
 .compatibility-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;

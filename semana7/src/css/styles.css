@@ -862,11 +862,11 @@ html {
   }
 
   .clients__info-container{
-    font-size: calc(var(--font-size)*0.3);
+    font-size: calc(var(--font-size)*0.4);
   }
 
   .clients-gallery-container{
-    grid-template-columns: repeat(auto-fit, min(100%, 90px));
+    grid-template-columns: repeat(auto-fit, min(100%, 60px));
   }
 
   .features__main-title{

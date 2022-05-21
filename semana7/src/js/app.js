@@ -62,8 +62,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     else
       wspLink=wspLinkDesktop;
   
-    alert(wspLink+wspMessage);
-
     const win = window.open(wspLink+wspMessage, '_blank');
     win.focus();
   };

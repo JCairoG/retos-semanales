@@ -261,7 +261,7 @@ html {
 }
 
 .features__subtitle{
-  animation: rightStart 2.5s ease-in-out 0s;
+  animation: rightStart 3s ease-in-out 0s;
   text-align: center;
   margin: 1rem 0;
   color: var(--secondary-font-color);

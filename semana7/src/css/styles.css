@@ -862,7 +862,7 @@ html {
   }
 
   .clients__info-container{
-    font-size: calc(var(--font-size)*0.4);
+    font-size: calc(var(--font-size)*0.35);
   }
 
   .clients-gallery-container{

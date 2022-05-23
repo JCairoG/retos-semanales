@@ -49,7 +49,7 @@
   }
 
   100%{
-      transform: scale (1);
+      transform: scale(1);
       opacity: 1;
   }
 }
@@ -61,7 +61,7 @@
   }
 
   100%{
-      transform: scale (0.3);
+      transform: scale(0.3);
       opacity: 0;
   }
 }
@@ -349,12 +349,10 @@ html {
 }
 
 .features__table{
-  border-style: solid;
-  border-width: 1px;
+  border: solid 1px;
   border-radius: 0.5rem;
   font-size: calc(var(--font-size)*0.6);
   padding: 0.1rem;
-  /*background: linear-gradient(to right, var(--secondary-background-color),var(--secondary-background-color-gradient));*/
   margin: 0;
 }
 
@@ -413,8 +411,8 @@ html {
 }
 
 .compatibility-table-container{
-  overflow-x: auto;
   display: flex;
+  overflow-x: auto;
   max-width: 80%;
   align-items: center;
 }
@@ -443,18 +441,15 @@ html {
 
 .compatibility__details-important{
   color: var(--secondary-title-font-color);
-  text-shadow: 
-    0 0 1rem var(--secondary-background-color);
+  font-weight: 600;
 }
 
 .compatibility__table{
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 0.5rem;
-  padding: 0.1rem;
-  word-wrap: break-word;
-  margin: 0;
   table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  margin: 0;
 }
 
 .compatibility__table-header{
@@ -462,28 +457,30 @@ html {
   background: var(--primary-background-color);
   padding: 0.3rem;
   text-align: center;
-  font-size: calc(var(--font-size)*0.5);
+  font-size: calc(var(--font-size)*0.45);
   border: solid var(--primary-font-color) 1px;
+  width: 1.5rem;
 }
 
 .compatibility__table-header.--vertical-header{
   text-align: left;
 }
 
-.compatibility__table-row:nth-child(1n) {
-  color: var(--secondary-font-color);
-  background: var(--secondary-background-color-gradient);
-}
-
-.compatibility__table-row:nth-child(2n) {
+.compatibility__table-row{
   color: var(--secondary-font-color);
   background: var(--secondary-background-color);
+}
+
+.compatibility__table-row.row-highlight{
+  background: var(--secondary-background-color-gradient);
 }
 
 .compatibility__table-data{
   padding: 0.3rem;
   text-align: center;
   font-size: calc(var(--font-size)*0.4);
+  border: 1px solid var(--primary-background-color);
+  width: 3rem;
 }
 
 .compatibility__table-data-footer{
@@ -495,8 +492,7 @@ html {
 .compatibility__table-row-footer {
   color: var(--primary-font-color);
   background: var(--primary-background-color);
-  border-left: solid var(--primary-font-color) 1px;
-  border-right: solid var(--primary-font-color) 1px;
+  border: 1px solid var(--primary-font-color);
 }
 
 .clients-container {

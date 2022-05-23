@@ -153,7 +153,7 @@ html {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 0.75rem;
+  padding: 0.5rem;
   box-sizing: border-box;
   min-height: 40vh;
 }
@@ -202,7 +202,7 @@ html {
   align-items: center;
   max-width: var(--max-section-width);
   margin: 0 auto;
-  padding: 0.75rem;
+  padding: 0.5rem;
   box-sizing: border-box;
   gap: 2rem;
 }
@@ -224,6 +224,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .main__details{
@@ -238,9 +239,6 @@ html {
   width: 400px;
   height: 267px;
   overflow: hidden;
-}
-
-.main-image-container.loaded-content{
   animation: popUp 2s ease-in-out 0s;
 }
 
@@ -259,7 +257,7 @@ html {
   gap: 1.5rem;
   margin: 0 auto;
   max-width: var(--max-section-width);
-  padding: 0.75rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -413,7 +411,7 @@ html {
   gap: 1.5rem;
   margin: 0 auto;
   max-width: calc(var(--max-section-width)*1.3);
-  padding: 0.75rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -503,6 +501,7 @@ html {
 }
 
 .clients-container {
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   background: var(--clients-background-image) no-repeat;
@@ -514,9 +513,8 @@ html {
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   max-width: var(--max-section-width);
-  padding: 0.75rem;
   box-sizing: border-box;
 }
 
@@ -548,7 +546,7 @@ html {
   grid-template-columns: repeat(auto-fit, min(100%, 120px));
   justify-content: center;
   margin: 0;
-  padding: 1rem 1rem;
+  padding: 0.51rem 0.5rem;
   gap: 1.2rem;
   box-sizing: border-box;
   cursor: pointer;
@@ -699,7 +697,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
     box-shadow: 
     0 0 0.0625rem 0.0625rem var(--secondary-background-color-gradient),
     0 0 0.125rem 0.125rem var(--secondary-background-color-gradient);
@@ -839,10 +837,6 @@ html {
     min-height: 20vh;
   }
 
-  .main-container-info{
-    padding: 1rem;
-  }
-
   .main-container3{
     flex-direction: column;
   }
@@ -851,14 +845,16 @@ html {
     max-width: 200px
   }
 
+  .main-image-container{
+    margin: 0;
+    width: 300px;
+    overflow: hidden;
+  }
+
   .main__details{
     font-size: calc(var(--font-size)*0.6);
   }
   
-  .features-container{
-    padding: 1rem;
-  }
-
   .features__subtitle{
     font-size: var(--font-size);
   }
@@ -916,10 +912,6 @@ html {
 
   .compatibility__table-data-footer{
     font-size: calc(var(--font-size)*0.28);
-  }
-
-  .clients-container{
-    padding: 1rem;
   }
 
   .clients__details{

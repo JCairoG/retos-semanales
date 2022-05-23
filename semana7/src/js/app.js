@@ -7,8 +7,6 @@ const wspLinkMobile ="https://wa.me/51984119920?";
 const wspMessage="text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
 
 document.addEventListener("DOMContentLoaded", () =>{
-  document.querySelector(".main-image-container").classList.toggle("loaded-content");
-  
   const hamburger = document.getElementById("header__hamburger-icon");
   const navMenu = document.getElementById("header__menu-list");
   const navLink = document.querySelectorAll(".header__menu-nav");

@@ -1,56 +1,50 @@
 .input-container {
   display: flex;
+  flex: 0 0 auto;
   transition: all 0.25s;
   width: 100%;
-  flex: 0 0 auto;
   position: relative;
-  padding: 0.45rem 0.25rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 
-.input-container > input[type=text],.input-container > input[type=email], .input-container > input [type=select-one] .input-container > input [type=textarea]{
+.input-container > input,
+.input-container > textarea {
   margin: 0;
+  margin-top: 0.75rem;
   padding: 0.5rem;
   width: 100%;
   color: var(--secondary-font-color);
   font-size: calc(var(--font-size) * 0.6);
   text-align: left;
   border: 1px solid var(--secondary-background-color);
-  width: 100%;
-  height: calc(var(--font-size) * 0.6 * 1.8);
-  margin-top: 0.75rem;
+  height: calc(var(--font-size) * 0.6 * 1.5);
 }
 
 .input-container > input[type=number] {
-  margin: 0;
-  width: 100%;
-  color: var(--secondary-font-color);
-  font-size: calc(var(--font-size) * 0.6);
-  text-align: left;
-  outline: none;
-  border: none;
-  border: 1px solid var(--secondary-background-color);
-  width: 100%;
-  height: calc(var(--font-size) * 0.6 * 1.8);
-  margin-top: 0.75rem;
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
 }
 
-.input-container > input:focus {
+.input-container > input:focus,
+.input-container > textarea:focus {
   background-color: var(--secondary-background-color-gradient);
 }
 
-.input-container > input::placeholder {
+.input-container > input::placeholder,
+.input-container > textarea::placeholder {
   color: transparent;
 }
 
-.input-container > input:placeholder-shown ~ label {
-  transform: scale(1.2) translateY(1.3rem) translateX(0.1rem);
+.input-container > input:placeholder-shown ~ label,
+.input-container > textarea:placeholder-shown ~ label{
+  transform: scale(1.2) translateY(1.7rem) translateX(0.1rem);
   opacity: 0.75;
   color: var(--secondary-font-color);
 }
 
-.input-container > input:focus ~ label {
+.input-container > input:focus ~ label, 
+.input-container > textarea:focus ~ label {
   transform: none;
   color: var(--primary-font-color);
 }
@@ -90,10 +84,6 @@
   }
   .col-10 {
     width: 83.33333333%;
-  }
-  
-  .col-12 {
-    width: 100%;
   }
 
 }

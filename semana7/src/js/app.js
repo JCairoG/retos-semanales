@@ -7,6 +7,7 @@ const wspLinkMobile ="https://wa.me/51984119920?";
 const wspMessage="text=Hola!%20Quisiera%20saber%20m%C3%A1s%20informaci%C3%B3n%20del%20software"
 
 document.addEventListener("DOMContentLoaded", () =>{
+
   const hamburger = document.getElementById("header__hamburger-icon");
   const navMenu = document.getElementById("header__menu-list");
   const navLink = document.querySelectorAll(".header__menu-nav");
@@ -18,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () =>{
   const btnContactShow = document.getElementById("clients__button-contact"); /*abrir form*/
   
   copyRightDate.innerHTML = `Todos los derechos reservados - Perú ${new Date().getFullYear()}`;
+
+  document.querySelector(".main-image-container").classList.toggle('loaded');
 
   const showContactForm = () =>{
     let section = document.querySelector(".contact");
@@ -77,5 +80,6 @@ document.addEventListener("DOMContentLoaded", () =>{
   setTimeout(() => {
     fillGridFeatures();
     clientsGalleryFill();
-  }, 3000);
+  }, 2500);
+
 })

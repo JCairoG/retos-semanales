@@ -94,6 +94,7 @@ html {
 }
 
 .header__logo-container{
+  display: none;
   margin: 0;
   height: 53px;
   width: 80px;
@@ -235,10 +236,15 @@ html {
 }
 
 .main-image-container{
+  display: none;
   margin: 0;
   width: 400px;
   height: 267px;
   overflow: hidden;
+}
+
+.main-image-container.loaded{
+  display: block;
   animation: popUp 2s ease-in-out 0s;
 }
 
@@ -607,7 +613,7 @@ html {
 }
 
 .contact {
-  display: flex;
+  /*display: flex;*/
   background: var(--contact-blackgroud-image) no-repeat;    
   background-size: cover;
   position: absolute;
@@ -627,7 +633,7 @@ html {
   justify-content: center;
   margin: 0 auto;
   max-width: var(--max-section-width);
-  padding: 0.75rem;
+  padding: 0.5rem;
   box-sizing: border-box;
 }
 
@@ -654,10 +660,8 @@ html {
 
 .contact-inputs-container{
   display: flex;
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .contact__button-send {
@@ -802,7 +806,7 @@ html {
   }
 
   .header__menu-list.active {
-    left: 0px;
+    left: -35px;
    }
 
   .header__menu-item {
@@ -846,9 +850,7 @@ html {
   }
 
   .main-image-container{
-    margin: 0;
     width: 300px;
-    overflow: hidden;
   }
 
   .main__details{

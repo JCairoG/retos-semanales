@@ -194,6 +194,7 @@ html {
 
 .main-container2 {
   background: linear-gradient(to bottom, var(--primary-background-color),var(--primary-background-color-gradient));
+  padding: 0.5rem;
 }
 
 .main-container3{
@@ -202,7 +203,6 @@ html {
   align-items: center;
   max-width: var(--max-section-width);
   margin: 0 auto;
-  padding: 0.5rem;
   box-sizing: border-box;
   gap: 2rem;
 }
@@ -224,7 +224,6 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
 }
 
 .main__details{
@@ -700,6 +699,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   padding: 0.5rem;
     box-shadow: 
     0 0 0.0625rem 0.0625rem var(--secondary-background-color-gradient),

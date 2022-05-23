@@ -95,6 +95,7 @@ html {
 
 .header__logo-container{
   margin: 0;
+  height: 53px;
   width: 80px;
   overflow: hidden;
 }
@@ -235,8 +236,13 @@ html {
 .main-image-container{
   animation: popUp 2s ease-in-out 0s;
   margin: 0;
-  max-width: 400px;
+  width: 400px;
+  height: 267px;
   overflow: hidden;
+}
+
+.main-image-container.loaded-content{
+  animation: popUp 2s ease-in-out 0s;
 }
 
 .main__image{

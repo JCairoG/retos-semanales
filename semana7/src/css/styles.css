@@ -234,7 +234,6 @@ html {
 }
 
 .main-image-container{
-  animation: popUp 2s ease-in-out 0s;
   margin: 0;
   width: 400px;
   height: 267px;

@@ -12,10 +12,9 @@ document.addEventListener("DOMContentLoaded", () =>{
   const hamburger = document.getElementById("header__hamburger-icon");
   const navMenu = document.getElementById("header__menu-list");
   const navLink = document.querySelectorAll(".header__menu-nav");
-  const wspMsg = document.getElementById("contact-whatsApp-icon");          // scroll-to-top selection
+  const wspLinks = document.querySelectorAll(".contact-wsp-link");          
   const copyRightDate = document.querySelector(".footer__copyright-date");
   const linkToggle = document.querySelectorAll('.toggle-trigger');
-  const wspMsg2 = document.getElementById("footer__contact-wsp");
   const btnContactSend = document.getElementById("contact__button-send"); /*enviar la info*/
   const btnContactCancel = document.getElementById("contact__button-cancel"); /*cerrar el form*/
   const btnContactShow = document.getElementById("clients__button-contact"); /*abrir form*/
@@ -51,18 +50,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     element.addEventListener('click', sectionToggle);
   })
  
-  const openWhatsApp = (e) =>{
-    let wspLink=wspLinkMobile;
-    /*
-    if (isMobileDevice)
-      wspLink=wspLinkMobile;
-    else
-      wspLink=wspLinkDesktop;
-    */
-    const win = window.open(wspLink+wspMessage, '_blank','rel=noopener noreferrer');
-    win.focus();
-  };
-
   const openMenu = () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
@@ -74,20 +61,23 @@ document.addEventListener("DOMContentLoaded", () =>{
   }
 
   navLink.forEach((nav) => {
-    nav.addEventListener("click", closeMenu);
-    if (nav.id==="header__menu-item-contact"){
-      nav.href="";
-      nav.addEventListener("click", openWhatsApp);
+    nav.addEventListener("click", closeMenu); /*add close event*/
+    if (nav.id==="header__menu-item-contact"){  /*plus wsp shorcut*/
+      nav.href=wspLinkMobile+wspMessage;
     }
   });
 
+  wspLinks.forEach((link) =>{
+    link.href = wspLinkMobile+wspMessage;
+  })
+  
   hamburger.addEventListener("click", openMenu);
-  wspMsg.addEventListener("click", openWhatsApp);
-  wspMsg2.addEventListener("click", openWhatsApp);
   btnContactShow.addEventListener("click", showContactForm);
   btnContactSend.addEventListener("click", sendContactData);
   btnContactCancel.addEventListener("click", showContactForm);
 
-  fillGridFeatures();
-  clientsGalleryFill();
+  setTimeout(() => {
+    fillGridFeatures();
+    clientsGalleryFill();
+  }, 3000);
 })

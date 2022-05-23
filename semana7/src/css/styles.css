@@ -7,7 +7,7 @@
   --primary-title-font-color: #0652dd;
   --secondary-title-font-color: rgb(229,49,60);
   
-  --primary-background-color: rgb(4,40,90);
+  --primary-background-color: rgb(0,41,106);
   --primary-background-color-gradient: rgb(1,92,165);
   
   --secondary-background-color:#fff;
@@ -193,7 +193,7 @@ html {
 }
 
 .main-container2 {
-  background: linear-gradient(to right, var(--primary-background-color),var(--primary-background-color-gradient));
+  background: linear-gradient(to bottom, var(--primary-background-color),var(--primary-background-color-gradient));
 }
 
 .main-container3{
@@ -354,6 +354,8 @@ html {
 }
 
 .features__table{
+  border-collapse: collapse;
+  table-layout: fixed;
   border: solid 1px;
   border-radius: 0.5rem;
   font-size: calc(var(--font-size)*0.6);
@@ -875,6 +877,8 @@ html {
  
   .features__main-list{
     flex-direction: column;
+    align-items: center;
+    margin: 1rem;
   }
 
   .features__main-item {

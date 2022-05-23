@@ -927,7 +927,7 @@ html {
   }
 
   .clients-gallery-container{
-    grid-template-columns: repeat(auto-fit, min(100%, 60px));
+    grid-template-columns: repeat(auto-fit, min(100%, 90px));
   }
 
   .contact__details{
@@ -940,6 +940,7 @@ html {
 
   .footer__contact-list{
     flex-direction: column;
+    margin: auto;
     gap: 0.75rem;
   }
 }

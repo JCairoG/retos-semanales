@@ -1,0 +1,297 @@
+[{
+  "id": 1,
+  "name": "Alexmath",
+  "alias": "Alexmath",
+  "location": "Arequipa",
+  "lines": "1",
+  "logo": "./src/images/logo_am.webp"
+},
+{
+  "id": 2,
+  "name": "Certificación Tecnimotors",
+  "alias": "Tecnimotors",
+  "location": "Huacho",
+  "lines": "1",
+  "logo": "./src/images/logo_tm.webp"
+},
+{
+  "id": 3,
+  "name": "CITV El Cumbe",
+  "alias": "El Cumbe",
+  "location": "Cajamarca",
+  "lines": "1",
+  "logo": "./src/images/logo_cumbe.webp"
+},
+{
+  "id": 4,
+  "name": "Revisa Perú",
+  "alias": "Revisa Perú",
+  "location": "Lima",
+  "lines": "4",
+  "logo": "./src/images/logo_revisa.webp"
+},
+{
+  "id": 5,
+  "name": "Organización Técnica Vehicular Cajamarca SAC",
+  "alias": "ORTEV SAC",
+  "location": "Cajamarca",
+  "lines": "2",
+  "logo": "./src/images/logo_ortev.webp"
+},
+{
+  "id": 6,
+  "name": "SGA",
+  "alias": "SGA",
+  "location": "Pisco",
+  "lines": "1",
+  "logo": "./src/images/logo_sga.webp"
+},
+{
+  "id": 7,
+  "name": "Sitec Centro",
+  "alias": "Sitec",
+  "location": "Chincha",
+  "lines": "1",
+  "logo": "./src/images/logo_sitec.webp"
+},
+{
+  "id": 8,
+  "name": "Tineli Perú SAC",
+  "alias": "Tineli",
+  "location": "Huánuco",
+  "lines": "1",
+  "logo": "./src/images/logo_tineli.webp"
+},
+{
+  "id": 9,
+  "name": "CITV Vip",
+  "alias": "CITV Vip",
+  "location": "Arequipa",
+  "lines": "2",
+  "logo": "./src/images/logo_vip.webp"
+},
+{
+  "id": 10,
+  "name": "Revisiones Tecnicas del Perú",
+  "alias": "RTP",
+  "location": "Lima",
+  "lines": "13",
+  "logo": "./src/images/logo_rtp.png"
+},
+{
+  "id": 11,
+  "name": "CICATEC",
+  "alias": "CICATEC",
+  "location": "Trujillo",
+  "lines": "2",
+  "logo": "./src/images/logo_cica.webp"
+},
+{
+  "id": 12,
+  "name": "Certificadora y Constructora San Martín",
+  "alias": "Certicon San Martín",
+  "location": "Juliaca",
+  "lines": "1",
+  "logo": "./src/images/logo_sm.webp"
+},
+{
+  "id": 13,
+  "name": "Revisiones Técnicas Huanuco E.I.R.L",
+  "alias": "CITV Huánuco",
+  "location": "Huánuco",
+  "lines": "1",
+  "logo": "./src/images/logo_huan.webp"
+},
+{
+  "id": 14,
+  "name": "Selva Verde",
+  "alias": "Selva Verde",
+  "location": "Cajamarca",
+  "lines": "1",
+  "logo": "./src/images/logo_sv.webp"
+},
+{
+  "id": 15,
+  "name": "ESIT",
+  "alias": "ESIT",
+  "location": "Chimbote",
+  "lines": "1",
+  "logo": "./src/images/logo_esit.webp"
+},
+{
+  "id": 16,
+  "name": "IVETEC Perú S.A.C.",
+  "alias": "IVETEC",
+  "location": "Lima",
+  "lines": "2",
+  "logo": "./src/images/logo_ivetec.webp"
+},
+{
+  "id": 17,
+  "name": "Transoceánica Virgen de Chapi",
+  "alias": "Virgen de Chapi",
+  "location": "Cusco",
+  "lines": "1",
+  "logo": "./src/images/logo_chapi.webp"
+},
+{
+  "id": 18,
+  "name": "Cervep S.A.C.",
+  "alias": "Revistar",
+  "location": "Ica",
+  "lines": "2",
+  "logo": "./src/images/logo_revistar.webp"
+},
+{
+  "id": 19,
+  "name": "DP S.A.C.",
+  "alias": "DP S.A.C",
+  "location": "Lima",
+  "lines": "1",
+  "logo": "./src/images/logo_dpsac.webp"
+},
+{
+  "id": 20,
+  "name": "Retenorte E.I.R.L.",
+  "alias": "Retenorte",
+  "location": "Trujillo",
+  "lines": "1",
+  "logo": "./src/images/logo_retenorte.webp"
+},
+{
+  "id": 21,
+  "name": "Cervis S.A.C.",
+  "alias": "Cervis S.A.C.",
+  "location": "Lima",
+  "lines": "1",
+  "logo": "./src/images/logo_cervis.webp"
+},
+{
+  "id": 22,
+  "name": "JPCH Inversiones E.I.R.L.",
+  "alias": "SOS",
+  "location": "Tacna",
+  "lines": "2",
+  "logo": "./src/images/logo_sos.webp"
+},
+{
+  "id": 23,
+  "name": "Santos S.A.C.",
+  "alias": "Santos S.A.C.",
+  "location": "Lima",
+  "lines": "1",
+  "logo": "./src/images/logo_santos.webp"
+},
+{
+  "id": 24,
+  "name": "CITV Perú",
+  "alias": "CITV Perú",
+  "location": "Trujillo",
+  "lines": "1",
+  "logo": "./src/images/logo_citvperu.webp"
+},
+{
+  "id": 25,
+  "name": "Reviauto S.A.C.",
+  "alias": "Reviato S.A.C.",
+  "location": "Lima",
+  "lines": "2",
+  "logo": "./src/images/logo_reviauto.webp"
+},
+{
+  "id": 26,
+  "name": "RTV San Cristobal",
+  "alias": "RTV San Cristobal",
+  "location": "Lima, Huancavelica",
+  "lines": "3",
+  "logo": "./src/images/logo_sancris.webp"
+},
+{
+  "id": 27,
+  "name": "MAXIM TELECOM",
+  "alias": "Otanor",
+  "location": "Trujillo",
+  "lines": "3",
+  "logo": "./src/images/logo_ota.webp"
+},
+{
+  "id": 28,
+  "name": "CITV Gutierrez",
+  "alias": "CITV Gutierrez",
+  "location": "Cusco",
+  "lines": "1",
+  "logo": "./src/images/logo_gutierrez.webp"
+},
+{
+  "id": 29,
+  "name": "Vias Peruanas",
+  "alias": "Vias Peruanas",
+  "location": "Trujillo",
+  "lines": "1",
+  "logo": "./src/images/logo_vias.webp"
+},
+{
+  "id": 30,
+  "name": "CPSAC Certificaciones",
+  "alias": "CPSAC",
+  "location": "Huánuco",
+  "lines": "2",
+  "logo": "./src/images/logo_cpsac.webp"
+},
+{
+  "id": 31,
+  "name": "Ecologia Vial S.A.C.",
+  "alias": "Ecovial S.A.C.",
+  "location": "Jaén",
+  "lines": "1",
+  "logo": "./src/images/logo_eco.webp"
+},
+{
+  "id": 32,
+  "name": "Inspecciones Técnicas Cajamarca",
+  "alias": "INTECAJ",
+  "location": "Cajamarca",
+  "lines": "1",
+  "logo": "./src/images/logo_intecaj.webp"
+},
+{
+  "id": 33,
+  "name": "Ceditedv",
+  "alias": "Ceditedv",
+  "location": "Lima",
+  "lines": "4",
+  "logo": "./src/images/logo_ced.webp"
+},
+{
+  "id": 34,
+  "name": "Reviauto Perú",
+  "alias": "Reviauto Perú",
+  "location": "Trujillo",
+  "lines": "2",
+  "logo": "./src/images/logo_reviautotrujillo.webp"
+},
+{
+  "id": 35,
+  "name": "ABC del Perú",
+  "alias": "ABC del Perú",
+  "location": "Trujillo",
+  "lines": "1",
+  "logo": "./src/images/logo_abc.webp"
+},
+{
+  "id": 36,
+  "name": "Antarqui Service S.A.C.",
+  "alias": "Antarqui Service",
+  "location": "Tacna",
+  "lines": "1",
+  "logo": "./src/images/logo_antarqui.webp"
+},
+{
+  "id": 37,
+  "name": "San Martin de Porres",
+  "alias": "San Martin de Porres",
+  "location": "Juliaca, Puno",
+  "lines": "2",
+  "logo": "./src/images/logo_smp2.webp"
+}
+]

@@ -1,0 +1,78 @@
+[{
+  "id" : 1,
+  "feature":"Soporte y/o asistencia técnica oportuna.\rTrato directo con el desarrollador del software",
+  "description" : "Otros softwares dependen de proveedores extranjeros generando demoras en la atención de requerimientos y/o no cuentan con un área de soporte adecuados"
+},
+{
+  "id" : 2,
+  "feature":"Administración del software por parte del CITV",
+  "description" : "Capacitamos al personal para la total administración de nuestro software. Aprenderá a instalar, reinstalar, configurar, etc."
+},
+{
+  "id" : 3,
+  "feature":"Compatible con más de 50 modelos diferentes de equipos de medición",
+  "description" : "Otros softwares son compatibles sólo con la marca que los distribuye"
+},
+{
+  "id" : 4,
+  "feature":"Puede combinar diferentes marcas de equipos de medición en la misma línea de inspección",
+  "description" : "Reduzca la dependencia con el proveedor de equipos. Si un equipo falla, puede adquirir cualquiera de los más de 50 modelos compatibles con SITEV"
+},
+{
+  "id" : 5,
+  "feature":"Base de datos de archivo Documentario Digital",
+  "description" : "Organice el expediente técnico del vehículo de manera totalmente digital. Ahorre espacio y dinero"
+}
+,
+{
+  "id" : 6,
+  "feature":"Control y auditoria del enlace permanente con el MTC.<br>(Servicio Web de InterOperabilidad)",
+  "description" : "Audite el funcionamiento de su enlace permanente con el MTC, sin depender de terceros."
+}
+,
+{
+  "id" : 7,
+  "feature":"Validación inteligente y automática del contenido del informe o certificado (incluido complementarias) antes de emitirlo.",
+  "description" : "SITEV asegura la correcta validación de todos los datos contenidos en la tarjeta de propiedad y demás documentos antes de generar el informe o certificado."
+}
+,
+{
+  "id" : 8,
+  "feature":"Control de numeración de impresión de hojas de Certificados e Informe",
+  "description" : "Controle la papelería de Informes y Certificados impresos y anulados"
+}
+,
+{
+  "id" : 9,
+  "feature":"Módulo de Información al Usuario<br>(Pantalla de estado del vehículo y alertas al usuario)",
+  "description" : "Mantiene al usuario informado de los resultados de las pruebas y en qué área se encuentra su expediente."
+},
+{
+  "id" : 10,
+  "feature":"Módulo de Facturación integrado",
+  "description" : "Controle lo facturado y cobrado. Imprima comprobantes de pago y gestione sus cuentas por cobrar"
+}
+,
+{
+  "id" : 11,
+  "feature":"Preparado para la Facturación Electrónica",
+  "description" : "SITEV está preparado para enlazarse con los proveedores de facturación electrónica"
+}
+,
+{
+  "id" : 12,
+  "feature":"Centralización de Datos",
+  "description" : "Interconecte sus plantas con SITEV para obtener reportes consolidados con solo un clic y en tiempo real"
+}
+,
+{
+  "id" : 13,
+  "feature":"Innovación constante del producto con nuevas características y mejoras",
+  "description" : "SITEV está en constante evolución, presentando cada cierto tiempo versiones mejoradas y/o con nuevas características"
+}
+,
+{
+  "id" : 14,
+  "feature":"Audite permanentemente sus plantas con el aplicativo móvil de SITEV",
+  "description" : "SITEV Data Central es un App para dispositivos Android que permite monitorear en tiempo real el estado de sus plantas. Conozca la cantidad de vehículos inspeccionados, montos de ventas, estado del enlace con el MTC, etc. ¡Todo en tiempo real!"
+}]

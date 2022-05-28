@@ -20,7 +20,7 @@
   opacity: 0.3;
 }  
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .dialog {
     width: 500px;
   }

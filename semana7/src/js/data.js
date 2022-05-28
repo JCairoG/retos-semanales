@@ -1,4 +1,10 @@
-const gridFeatures = document.getElementById("features__table");
+let gridFeatures;
+let galleryClients;
+
+document.addEventListener("DOMContentLoaded", () =>{
+  gridFeatures = document.getElementById("features__table");
+  gridFeatures.addEventListener("click", getGridSelectedId);
+})
 
 const clientsGalleryInfo = (e) => {
   const infoContainer = document.getElementById("clients__info-container"); 
@@ -49,7 +55,7 @@ export const fillGridFeatures = async () =>{
   const gridBody = gridFeatures.getElementsByTagName("tbody")[0];
   gridBody.innerHTML = "";
       
-  const data = await fetchInfo("https://jcsistemasperu.com/features.json");
+  const data = await fetchInfo("../src/json/features.json");
   if (!data) return;
 
   data.forEach((row)=>{
@@ -59,6 +65,36 @@ export const fillGridFeatures = async () =>{
     }
     gridBody.innerHTML += `<tr class="features__table-row">${cellData}</tr>`;
   })
+}
+
+export const clientsGalleryFill = async () =>{
+  galleryClients = document.getElementById("clients-gallery-container");
+  galleryClients.innerHTML ="";
+
+  const data = await fetchInfo("../src/json/clients.json");
+  if (!data) return;
+
+  data.forEach((row)=>{
+    const tag = row['lines'] + " lineas con SITEV en " + row['location'];
+    galleryClients.innerHTML += `
+    <figure class="clients__gallery-image-container" id=${row['id']} clientInfo="${tag}" alias="${row['alias']}">  
+      <img src=${row['logo']} alt="${row['alias']}" loading="lazy" class="clients__gallery-image"/>
+    </figure>
+    `;
+  })
+  galleryClients.innerHTML += `<div class="clients__info-container" id="clients__info-container"></div>`;
+
+  const imgContainer = document.querySelectorAll(".clients__gallery-image-container"); 
+  const img = document.querySelectorAll(".clients__gallery-image"); 
+
+  imgContainer.forEach((img) => {
+    img.addEventListener("mouseover", clientsGalleryInfo)
+  });
+
+  img.forEach((img) => {
+    img.addEventListener("mouseover", clientsGalleryInfo)
+  });
+
 }
 
 export const getGridSelectedId = (e) =>{
@@ -82,34 +118,3 @@ export const getGridSelectedId = (e) =>{
     console.log(err);
   }
 }
-
-export const clientsGalleryFill = async () =>{
-  const galleryClients = document.getElementById("clients-gallery-container");
-  galleryClients.innerHTML ="";
-
-  const data = await fetchInfo("https://jcsistemasperu.com/clients.json");
-  if (!data) return;
-
-  data.forEach((row)=>{
-    const tag = row['lines'] + " lineas con SITEV en " + row['location'];
-    galleryClients.innerHTML += `
-    <figure class="clients__gallery-image-container" id=${row['id']} clientInfo="${tag}" alias="${row['alias']}">  
-      <img src=${row['logo']} alt="${row['alias']}" class="clients__gallery-image"/>
-    </figure>
-    `;
-  })
-  galleryClients.innerHTML += `<div class="clients__info-container" id="clients__info-container"></div>`;
-
-  const galleryContainer = document.querySelectorAll(".clients__gallery-image-container"); 
-  const galleryImg = document.querySelectorAll(".clients__gallery-image"); 
-
-  galleryContainer.forEach((img) => {
-    img.addEventListener("mouseover", clientsGalleryInfo)
-  });
-
-  galleryImg.forEach((img) => {
-    img.addEventListener("mouseover", clientsGalleryInfo)
-  });
-}
-
-gridFeatures.addEventListener("click", getGridSelectedId);
